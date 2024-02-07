@@ -7,11 +7,18 @@
 
 import SwiftUI
 
-struct MainView: View {
+enum ViewStack {
+    case login
+    case registration
+}
+
+struct WelcomeView: View {
     @State private var presentNextView = false
+    @State private var nextView: ViewStack = .login
     
     var body: some View {
         NavigationStack {
+            
             VStack {
                 Image("person-learning")
                     .resizable()
@@ -27,6 +34,7 @@ struct MainView: View {
             HStack(spacing: 25) {
                 
                 Button {
+                    nextView = .login
                     presentNextView.toggle()
                 } label: {
                     Text("Login")
@@ -39,6 +47,7 @@ struct MainView: View {
                 
                 
                 Button {
+                    nextView = .registration
                     presentNextView.toggle()
                 } label: {
                     Text("Register")
@@ -49,7 +58,12 @@ struct MainView: View {
             }
             .padding()
             .navigationDestination(isPresented: $presentNextView) {
-                Text("next view click")
+                switch nextView {
+                case .login:
+                    LoginView()
+                case .registration:
+                    RegistrationView()
+                }
             }
         }
         .padding()
@@ -57,5 +71,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    WelcomeView()
 }

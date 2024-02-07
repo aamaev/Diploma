@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct DiplomaApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
+                .environmentObject(viewModel)
         }
     }
 }
