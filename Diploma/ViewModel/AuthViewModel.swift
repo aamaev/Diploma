@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import GoogleSignIn
 
 @MainActor
 class AuthViewModel: ObservableObject {
@@ -32,16 +33,44 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func createUser(withEmail email: String, password: String, userName: String) async throws {
+    func signIn(withCredential credential: AuthCredential) async throws {
         do {
-            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            let result = try await Auth.auth().signIn(with: credential)
             self.userSession = result.user
-            let user = User(id: result.user.uid, userName: userName, email: email)
-            let encodedUser = try Firestore.Encoder().encode(user)
-            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-            await fetchUser()
+            let snapshot = try await Firestore.firestore().collection("users").document(result.user.uid).getDocument()
+            if snapshot.exists {
+                print("DEBUG: User already exists in Firestore")
+                let userData = try? snapshot.data(as: User.self)
+                self.currentUser = userData
+            } else {
+                let newUser = User(id: result.user.uid, userName: result.user.displayName ?? "", email: result.user.email ?? "")
+                let encodedUser = try Firestore.Encoder().encode(newUser)
+                try await Firestore.firestore().collection("users").document(newUser.id).setData(encodedUser)
+                await fetchUser()
+            }
         } catch {
-            print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
+            print("DEBUG: Failed to sign it user with error: \(error.localizedDescription)")
+        }
+    }
+    
+    func signInWithGoogle() async {
+        do {
+            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+            
+            let config = GIDConfiguration(clientID: clientID)
+            GIDSignIn.sharedInstance.configuration = config
+            
+            let result = try? await GIDSignIn.sharedInstance.signIn(withPresenting: ApplicationUtility.rootViewController)
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+            
+            try await signIn(withCredential: credential)
+        } catch {
+            print("DEBUG: Failed to google sign in error: \(error.localizedDescription)")
         }
     }
     
@@ -55,17 +84,31 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteAccount() {
-        
+    func createUser(withEmail email: String, password: String, userName: String) async throws {
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            self.userSession = result.user
+            let user = User(id: result.user.uid, userName: userName, email: email)
+            let encodedUser = try Firestore.Encoder().encode(user)
+            try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
+        }
     }
-    
+
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument()
-            else { return }
-    
+        else { return }
+        
         self.currentUser = try? snapshot.data(as: User.self)
     }
+    
+    func deleteAccount() {
+        
+    }
+    
 }
 

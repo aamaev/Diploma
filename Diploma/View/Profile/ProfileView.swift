@@ -58,6 +58,15 @@ struct ProfileView: View {
         } else {
             Image(systemName: "arrow.triangle.2.circlepath")
         }
+        Button {
+            withAnimation {
+                viewModel.signOut()
+            }
+        } label: {
+            SettingsRowView(imageName: "arrow.left.circle.fill",
+                            title: "Sign Out",
+                            tintColor: .red)
+        }
     }
 }
 

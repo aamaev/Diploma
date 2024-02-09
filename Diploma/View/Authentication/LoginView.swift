@@ -88,6 +88,8 @@ struct LoginView: View {
 }
 
 struct BottomView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         VStack {
             Text("Or continue with")
@@ -106,7 +108,9 @@ struct BottomView: View {
                 .cornerRadius(8)
                 
                 Button {
-                    //action
+                    Task {
+                        await viewModel.signInWithGoogle()
+                    }
                 } label: {
                     Image("google-logo")
                         .resizable()
