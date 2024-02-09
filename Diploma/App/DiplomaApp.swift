@@ -10,12 +10,18 @@ import FirebaseCore
 
 @main
 struct DiplomaApp: App {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var questionViewModel = QuestionViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
-                .environmentObject(viewModel)
+            ContentView()
+                .environmentObject(authViewModel)
+                .environmentObject(questionViewModel)
         }
     }
 }

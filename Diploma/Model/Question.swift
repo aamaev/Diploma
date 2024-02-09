@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+struct Question: Identifiable, Codable {
+    var id: UUID = .init()
+    var question: String
+    var option: [String]
+    var answer: String
+    
+    var tappedAnswer: String = ""
+    
+    enum CodingKeys: CodingKey {
+        case question
+        case option
+        case answer
+    }
+}

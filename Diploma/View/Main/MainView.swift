@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            ChatView()
+                .tabItem {
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                    Text("Chats")
+                }
+            
+            TestView()
+                .tabItem {
+                    Image(systemName: "book.fill")
+                    Text("Tests")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }
+        }
+        .accentColor(.blue)
+        
+//        Button(action: {
+//            viewModel.signOut()
+//        }, label: {
+//            Text("Sign out")
+//        })
     }
 }
 

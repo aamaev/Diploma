@@ -69,7 +69,7 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                 }
                 .padding(.vertical)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .frame(maxWidth: .infinity)
                 .background(Color("primaryViolet"))
                 .cornerRadius(12)
                 .padding(.horizontal)

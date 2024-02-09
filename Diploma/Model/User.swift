@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct User: Identifiable, Codable {
+    let id: String
+    let userName: String
+    let email: String
+    
+    
+}
