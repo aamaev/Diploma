@@ -109,7 +109,7 @@ struct BottomView: View {
                 
                 Button {
                     Task {
-                        await viewModel.signInWithGoogle()
+                        try await viewModel.signInWithGoogle()
                     }
                 } label: {
                     Image("google-logo")

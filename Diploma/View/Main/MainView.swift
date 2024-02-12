@@ -18,7 +18,9 @@ struct MainView: View {
                     Text("Chats")
                 }
             
-            TestView()
+            NavigationView {
+                TestsView()
+            }
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Tests")
@@ -31,12 +33,7 @@ struct MainView: View {
                 }
         }
         .accentColor(.blue)
-        
-//        Button(action: {
-//            viewModel.signOut()
-//        }, label: {
-//            Text("Sign out")
-//        })
+
     }
 }
 

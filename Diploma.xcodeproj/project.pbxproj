@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094E16CA2B78B91B00602A47 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E16C92B78B91B00602A47 /* Test.swift */; };
 		095709E72B74FEB600C249AD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709E62B74FEB600C249AD /* Question.swift */; };
 		095709EB2B74FFC500C249AD /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709EA2B74FFC500C249AD /* QuestionView.swift */; };
-		095709ED2B75011C00C249AD /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709EC2B75011C00C249AD /* QuestionViewModel.swift */; };
-		095709F12B7521D400C249AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709F02B7521D400C249AD /* TestView.swift */; };
+		095709ED2B75011C00C249AD /* TestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709EC2B75011C00C249AD /* TestsViewModel.swift */; };
+		095709F12B7521D400C249AD /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709F02B7521D400C249AD /* TestsView.swift */; };
 		095709F32B7525A700C249AD /* TestRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709F22B7525A700C249AD /* TestRowView.swift */; };
 		095709F72B75260B00C249AD /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709F62B75260B00C249AD /* ChatView.swift */; };
 		095709FA2B763D3600C249AD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 095709F92B763D3600C249AD /* GoogleSignIn */; };
@@ -60,10 +61,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		094E16C92B78B91B00602A47 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		095709E62B74FEB600C249AD /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		095709EA2B74FFC500C249AD /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
-		095709EC2B75011C00C249AD /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
-		095709F02B7521D400C249AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		095709EC2B75011C00C249AD /* TestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewModel.swift; sourceTree = "<group>"; };
+		095709F02B7521D400C249AD /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
 		095709F22B7525A700C249AD /* TestRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRowView.swift; sourceTree = "<group>"; };
 		095709F62B75260B00C249AD /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		095709FF2B763D7B00C249AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -132,12 +134,12 @@
 			path = Question;
 			sourceTree = "<group>";
 		};
-		095709EF2B7521C600C249AD /* Test */ = {
+		095709EF2B7521C600C249AD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				095709F02B7521D400C249AD /* TestView.swift */,
+				095709F02B7521D400C249AD /* TestsView.swift */,
 			);
-			path = Test;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		095709F42B7525F700C249AD /* Chat */ = {
@@ -201,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				095709F42B7525F700C249AD /* Chat */,
-				095709EF2B7521C600C249AD /* Test */,
+				095709EF2B7521C600C249AD /* Tests */,
 				095709E82B74FFA800C249AD /* Question */,
 				09E777F12B74D27700BAC2ED /* Profile */,
 				09E777F02B73B55B00BAC2ED /* Main */,
@@ -224,6 +226,7 @@
 			children = (
 				09A8B7952B73A79F003C751E /* User.swift */,
 				095709E62B74FEB600C249AD /* Question.swift */,
+				094E16C92B78B91B00602A47 /* Test.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				09A8B7982B73AA68003C751E /* AuthViewModel.swift */,
-				095709EC2B75011C00C249AD /* QuestionViewModel.swift */,
+				095709EC2B75011C00C249AD /* TestsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -398,12 +401,13 @@
 				09E777EF2B73B54100BAC2ED /* MainView.swift in Sources */,
 				09E777F32B74D2B400BAC2ED /* ProfileView.swift in Sources */,
 				09A8B7572B70E927003C751E /* RegistrationView.swift in Sources */,
+				094E16CA2B78B91B00602A47 /* Test.swift in Sources */,
 				09A8B79E2B73B39B003C751E /* ContentView.swift in Sources */,
 				09A8B7962B73A79F003C751E /* User.swift in Sources */,
-				095709F12B7521D400C249AD /* TestView.swift in Sources */,
+				095709F12B7521D400C249AD /* TestsView.swift in Sources */,
 				095709EB2B74FFC500C249AD /* QuestionView.swift in Sources */,
 				09A8B7992B73AA68003C751E /* AuthViewModel.swift in Sources */,
-				095709ED2B75011C00C249AD /* QuestionViewModel.swift in Sources */,
+				095709ED2B75011C00C249AD /* TestsViewModel.swift in Sources */,
 				09E777F62B74D77A00BAC2ED /* SettingsRowView.swift in Sources */,
 				09A8B75A2B70EED3003C751E /* Validator.swift in Sources */,
 				095709F72B75260B00C249AD /* ChatView.swift in Sources */,

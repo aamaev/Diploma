@@ -53,7 +53,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func signInWithGoogle() async {
+    func signInWithGoogle() async throws {
         do {
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
             
@@ -106,8 +106,17 @@ class AuthViewModel: ObservableObject {
         self.currentUser = try? snapshot.data(as: User.self)
     }
     
-    func deleteAccount() {
+    func deleteAccount() async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
+        do {
+            try await Auth.auth().currentUser?.delete()
+            try await Firestore.firestore().collection("users").document(uid).delete()
+            self.userSession = nil
+            self.currentUser = nil
+        } catch {
+            print("DEBUG: Failed to delete user with error: \(error.localizedDescription)")
+        }
     }
     
 }

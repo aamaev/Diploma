@@ -14,7 +14,7 @@ struct DiplomaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @StateObject var authViewModel = AuthViewModel()
-    @StateObject var questionViewModel = QuestionViewModel()
+    @StateObject var questionViewModel = TestsViewModel()
     
     var body: some Scene {
         WindowGroup {

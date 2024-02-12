@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct Question: Identifiable, Codable {
+struct Question: Identifiable, Codable, Hashable {
     var id: UUID = .init()
     var question: String
-    var option: [String]
+    var options: [String]
     var answer: String
     
-    var tappedAnswer: String = ""
+    var selectedAnswer: String? = nil
     
     enum CodingKeys: CodingKey {
         case question
-        case option
+        case options
         case answer
     }
 }

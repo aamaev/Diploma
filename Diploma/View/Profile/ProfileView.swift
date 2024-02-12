@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @State private var showingConfirmationAlert = false
+    
     var body: some View {
         if let user = viewModel.currentUser {
             List {
@@ -45,27 +47,28 @@ struct ProfileView: View {
                     }
                     
                     Button {
-                        withAnimation {
-                            viewModel.deleteAccount()
+                            showingConfirmationAlert = true
+                        } label: {
+                            SettingsRowView(imageName: "xmark.circle.fill",
+                                            title: "Delete Account",
+                                            tintColor: .red)
                         }
-                    } label: {
-                        SettingsRowView(imageName: "xmark.circle.fill",
-                                        title: "Delete Account",
-                                        tintColor: .red)
+                        .alert(isPresented: $showingConfirmationAlert) {
+                            Alert(
+                                title: Text("Are you sure you want to delete account?"),
+                                message: Text("This action cannot be undone."),
+                                primaryButton: .cancel(Text("Cancel")),
+                                secondaryButton: .destructive(Text("Delete")) {
+                                    Task {
+                                        await viewModel.deleteAccount()
+                                    }
+                                }
+                            )
                     }
                 }
             }
         } else {
-            Image(systemName: "arrow.triangle.2.circlepath")
-        }
-        Button {
-            withAnimation {
-                viewModel.signOut()
-            }
-        } label: {
-            SettingsRowView(imageName: "arrow.left.circle.fill",
-                            title: "Sign Out",
-                            tintColor: .red)
+            ProgressView()
         }
     }
 }
