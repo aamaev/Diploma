@@ -16,8 +16,6 @@ struct QuestionView: View {
             Text("\(question.question)")
                 .font(.headline)
                 .fontWeight(.bold)
-                .padding(.bottom, 7)
-                .foregroundColor(.black)
 
             ForEach(question.options, id: \.self) { option in
                 Button {
@@ -26,9 +24,9 @@ struct QuestionView: View {
                 } label: {
                     HStack {
                         Text(option)
-                            .foregroundColor(.black)
                             .fontWeight(selectedAnswer == option ? .bold : .regular) 
                             .multilineTextAlignment(.leading)
+                            .foregroundColor(Color("darkGray"))
                         Spacer()
                         if selectedAnswer == option {
                             Image(systemName: "checkmark.circle.fill")
@@ -39,13 +37,9 @@ struct QuestionView: View {
                 .padding(.vertical, 5)
             }
         }
-        .padding(15)
+        .padding()
         .background(Color("primaryLightViolet"))
         .cornerRadius(15)
-        .overlay(
-            RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray, lineWidth: 1.5)
-        )
     }
 }
 

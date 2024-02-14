@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Test: Identifiable, Codable {
+struct Test: Identifiable, Codable, Hashable {
     var id: UUID = .init()
     var rules: String
     var title: String

@@ -37,7 +37,6 @@ struct RegistrationView: View {
                     .padding(.bottom)
                 Text("Improve your English\nby taking the first step")
                     .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(.black)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 75)
                 
@@ -83,7 +82,7 @@ struct RegistrationView: View {
                 } label: {
                     Text("Already have account")
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("darkGray"))
                 }
                 .padding(.vertical)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -119,7 +118,7 @@ struct UserNameTextField: View {
                 .cornerRadius(12)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(!isValidUserName ? .red :focusedField == .userName ? Color("primaryViolet") : .white, lineWidth: 3)
+                        .stroke(!isValidUserName ? .red :focusedField == .userName ? Color("darkGray") : .white, lineWidth: 3)
                 )
                 .padding(.horizontal)
                 .onChange(of: userName) { oldValue, newValue in

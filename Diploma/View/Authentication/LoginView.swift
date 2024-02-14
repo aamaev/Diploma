@@ -36,7 +36,6 @@ struct LoginView: View {
                     .padding(.bottom)
                 Text("Welcome back you've\n been missed!")
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.black)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 75)
                 
@@ -70,7 +69,7 @@ struct LoginView: View {
                 } label: {
                     Text("Create new account")
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("darkGray"))
                 }
                 .padding(.vertical)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -140,7 +139,7 @@ struct EmailTextField: View {
                 .cornerRadius(12)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(!isValidEmail ? .red :focusedField == .email ? Color("primaryViolet") : .white, lineWidth: 3)
+                        .stroke(!isValidEmail ? .red :focusedField == .email ? Color("darkGray") : .white, lineWidth: 3)
                 )
                 .padding(.horizontal)
                 .onChange(of: email) { oldValue, newValue in
@@ -177,7 +176,7 @@ struct PasswordTextField: View {
                 .cornerRadius(12)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(!isValidPassword ? .red :focusedField == .password ? Color("primaryViolet") : .white, lineWidth: 3)
+                        .stroke(!isValidPassword ? .red :focusedField == .password ? Color("darkGray") : .white, lineWidth: 3)
                 )
                 .padding(.horizontal)
                 .onChange(of: password) { oldValue, newValue in
