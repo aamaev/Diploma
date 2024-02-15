@@ -39,7 +39,6 @@ class TestsViewModel: ObservableObject {
             }
             
             self.tests = tests
-            print(tests)
         } catch {
             print("DEBUG: Failed to fetch tests with error: \(error.localizedDescription)")
         }

@@ -69,7 +69,7 @@ struct LoginView: View {
                 } label: {
                     Text("Create new account")
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(Color("darkGray"))
+                        .foregroundColor(Color("themeDark"))
                 }
                 .padding(.vertical)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -139,7 +139,7 @@ struct EmailTextField: View {
                 .cornerRadius(12)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(!isValidEmail ? .red :focusedField == .email ? Color("darkGray") : .white, lineWidth: 3)
+                        .stroke(!isValidEmail ? .red :focusedField == .email ? Color("themeDark") : .white, lineWidth: 3)
                 )
                 .padding(.horizontal)
                 .onChange(of: email) { oldValue, newValue in
@@ -176,7 +176,7 @@ struct PasswordTextField: View {
                 .cornerRadius(12)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(!isValidPassword ? .red :focusedField == .password ? Color("darkGray") : .white, lineWidth: 3)
+                        .stroke(!isValidPassword ? .red :focusedField == .password ? Color("themeDark") : .white, lineWidth: 3)
                 )
                 .padding(.horizontal)
                 .onChange(of: password) { oldValue, newValue in

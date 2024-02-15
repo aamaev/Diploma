@@ -26,7 +26,7 @@ struct QuestionView: View {
                         Text(option)
                             .fontWeight(selectedAnswer == option ? .bold : .regular) 
                             .multilineTextAlignment(.leading)
-                            .foregroundColor(Color("darkGray"))
+                            .foregroundColor(Color("themeDark"))
                         Spacer()
                         if selectedAnswer == option {
                             Image(systemName: "checkmark.circle.fill")

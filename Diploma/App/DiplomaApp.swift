@@ -13,14 +13,15 @@ import GoogleSignIn
 struct DiplomaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    @StateObject var authViewModel = AuthViewModel()
-    @StateObject var questionViewModel = TestsViewModel()
+    //@StateObject var dataModel = DataModel()
+    @StateObject var authModel = AuthViewModel()
+    @StateObject var testsModel = TestsViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(authViewModel)
-                .environmentObject(questionViewModel)
+                .environmentObject(authModel)
+                .environmentObject(testsModel)
         }
     }
 }

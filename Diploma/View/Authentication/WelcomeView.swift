@@ -52,7 +52,7 @@ struct WelcomeView: View {
                 } label: {
                     Text("Register")
                         .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(Color("darkGray"))
+                        .foregroundColor(Color("themeDark"))
                 }
                 .frame(width: 160, height: 60)
             }

@@ -47,23 +47,23 @@ struct ProfileView: View {
                     }
                     
                     Button {
-                            showingConfirmationAlert = true
-                        } label: {
-                            SettingsRowView(imageName: "xmark.circle.fill",
-                                            title: "Delete Account",
-                                            tintColor: .red)
-                        }
-                        .alert(isPresented: $showingConfirmationAlert) {
-                            Alert(
-                                title: Text("Are you sure you want to delete account?"),
-                                message: Text("This action cannot be undone."),
-                                primaryButton: .cancel(Text("Cancel")),
-                                secondaryButton: .destructive(Text("Delete")) {
-                                    Task {
-                                        await viewModel.deleteAccount()
-                                    }
+                        showingConfirmationAlert = true
+                    } label: {
+                        SettingsRowView(imageName: "xmark.circle.fill",
+                                        title: "Delete Account",
+                                        tintColor: .red)
+                    }
+                    .alert(isPresented: $showingConfirmationAlert) {
+                        Alert(
+                            title: Text("Are you sure you want to delete account?"),
+                            message: Text("This action cannot be undone."),
+                            primaryButton: .cancel(Text("Cancel")),
+                            secondaryButton: .destructive(Text("Delete")) {
+                                Task {
+                                    await viewModel.deleteAccount()
                                 }
-                            )
+                            }
+                        )
                     }
                 }
             }

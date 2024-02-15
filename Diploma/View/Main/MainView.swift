@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
-    
     var body: some View {
         TabView {
             ChatView()
                 .tabItem {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                     Text("Chats")
+                }
+            CardsView()
+                .tabItem {
+                    Image(systemName: "square.on.square")
+                    Text("Cards")
                 }
             
             NavigationView {
@@ -33,7 +36,6 @@ struct MainView: View {
                 }
         }
         .accentColor(.blue)
-
     }
 }
 
