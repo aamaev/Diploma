@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CardView: View {
-    let word: String
-    let translate: String
+    let word: Word
+    
+    var onSwipeLeft: () -> Void
+    var onSwipeRight: () -> Void
     
     @State private var isOpen: Bool = false
 
@@ -18,8 +20,8 @@ struct CardView: View {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.white)
                 .shadow(radius: 5)
-            VStack {
-                Text(word)
+            VStack(alignment: .leading) {
+                Text(word.word)
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
@@ -27,18 +29,41 @@ struct CardView: View {
                 Button(action: {
                     isOpen.toggle()
                 }, label: {
-                    Text(translate)
-                        .font(.title)
+                    VStack(alignment: .leading) {
+                        Text(word.translate)
+                            .font(.headline)
+                        Text("[\(word.transcription)]")
+                            .font(.subheadline)
+                    }
                         .fontWeight(.bold)
                         .foregroundColor(.black)
                         .blur(radius: isOpen ? 0.2 : 7.0)
                 })
+                HStack {
+                    Button(action: {
+                        onSwipeLeft()
+                    }) {
+                        Text("I already know this word")
+                            .font(.subheadline)
+                            .foregroundColor(Color("themeDark"))
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    }
+                    
+                    Text("||")
+                    
+                    Button(action: {
+                        onSwipeRight()
+                    }) {
+                        Text("Start learning this word")
+                            .font(.subheadline)
+                            .foregroundColor(Color("themeDark"))
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    }
+                }
+                .padding(.top, 25)
             }
+            .padding(15)
         }
     }
-
 }
 
-#Preview {
-    CardView(word: "Лето", translate: "Summer")
-}

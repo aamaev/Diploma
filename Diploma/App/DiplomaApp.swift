@@ -16,12 +16,14 @@ struct DiplomaApp: App {
     //@StateObject var dataModel = DataModel()
     @StateObject var authModel = AuthViewModel()
     @StateObject var testsModel = TestsViewModel()
+    @StateObject var cardsModel = CardsViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(authModel)
                 .environmentObject(testsModel)
+                .environmentObject(cardsModel)
         }
     }
 }

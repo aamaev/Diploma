@@ -15,7 +15,9 @@ struct MainView: View {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                     Text("Chats")
                 }
-            CardsView()
+            NavigationView {
+                CardsListView()
+            }
                 .tabItem {
                     Image(systemName: "square.on.square")
                     Text("Cards")

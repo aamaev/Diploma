@@ -57,6 +57,12 @@
 		09A8B7962B73A79F003C751E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B7952B73A79F003C751E /* User.swift */; };
 		09A8B7992B73AA68003C751E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B7982B73AA68003C751E /* AuthViewModel.swift */; };
 		09A8B79E2B73B39B003C751E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B79D2B73B39B003C751E /* ContentView.swift */; };
+		09D4F60C2B80B1D10000B4D1 /* CardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F60B2B80B1D10000B4D1 /* CardsListView.swift */; };
+		09D4F60E2B80B5860000B4D1 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F60D2B80B5860000B4D1 /* CardsViewModel.swift */; };
+		09D4F6102B80B5EE0000B4D1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F60F2B80B5EE0000B4D1 /* Card.swift */; };
+		09D4F6122B80D7050000B4D1 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F6112B80D7050000B4D1 /* Word.swift */; };
+		09D4F6142B8349810000B4D1 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F6132B8349810000B4D1 /* TestResultView.swift */; };
+		09D4F6162B8349A00000B4D1 /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4F6152B8349A00000B4D1 /* TestDetailView.swift */; };
 		09E777EF2B73B54100BAC2ED /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E777EE2B73B54100BAC2ED /* MainView.swift */; };
 		09E777F32B74D2B400BAC2ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E777F22B74D2B400BAC2ED /* ProfileView.swift */; };
 		09E777F62B74D77A00BAC2ED /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E777F52B74D77A00BAC2ED /* SettingsRowView.swift */; };
@@ -85,6 +91,12 @@
 		09A8B7952B73A79F003C751E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		09A8B7982B73AA68003C751E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		09A8B79D2B73B39B003C751E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		09D4F60B2B80B1D10000B4D1 /* CardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListView.swift; sourceTree = "<group>"; };
+		09D4F60D2B80B5860000B4D1 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		09D4F60F2B80B5EE0000B4D1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		09D4F6112B80D7050000B4D1 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		09D4F6132B8349810000B4D1 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
+		09D4F6152B8349A00000B4D1 /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 		09E777EE2B73B54100BAC2ED /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		09E777F22B74D2B400BAC2ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		09E777F52B74D77A00BAC2ED /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
@@ -142,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				095709F02B7521D400C249AD /* TestsView.swift */,
+				09D4F6132B8349810000B4D1 /* TestResultView.swift */,
+				09D4F6152B8349A00000B4D1 /* TestDetailView.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -167,6 +181,7 @@
 			children = (
 				099FD64D2B7E303D0099D78F /* CardView.swift */,
 				099FD64F2B7E39480099D78F /* CardsView.swift */,
+				09D4F60B2B80B1D10000B4D1 /* CardsListView.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -238,10 +253,12 @@
 		09A8B7942B73A784003C751E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				094E16CB2B7E082100602A47 /* DataModel.swift */,
 				09A8B7952B73A79F003C751E /* User.swift */,
 				095709E62B74FEB600C249AD /* Question.swift */,
 				094E16C92B78B91B00602A47 /* Test.swift */,
-				094E16CB2B7E082100602A47 /* DataModel.swift */,
+				09D4F60F2B80B5EE0000B4D1 /* Card.swift */,
+				09D4F6112B80D7050000B4D1 /* Word.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +268,7 @@
 			children = (
 				09A8B7982B73AA68003C751E /* AuthViewModel.swift */,
 				095709EC2B75011C00C249AD /* TestsViewModel.swift */,
+				09D4F60D2B80B5860000B4D1 /* CardsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,13 +430,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				099FD6502B7E39480099D78F /* CardsView.swift in Sources */,
+				09D4F6142B8349810000B4D1 /* TestResultView.swift in Sources */,
 				09A8B7542B70E86C003C751E /* LoginView.swift in Sources */,
 				09E777EF2B73B54100BAC2ED /* MainView.swift in Sources */,
 				09E777F32B74D2B400BAC2ED /* ProfileView.swift in Sources */,
 				09A8B7572B70E927003C751E /* RegistrationView.swift in Sources */,
 				094E16CA2B78B91B00602A47 /* Test.swift in Sources */,
 				094E16CC2B7E082100602A47 /* DataModel.swift in Sources */,
+				09D4F6102B80B5EE0000B4D1 /* Card.swift in Sources */,
 				09A8B79E2B73B39B003C751E /* ContentView.swift in Sources */,
+				09D4F6162B8349A00000B4D1 /* TestDetailView.swift in Sources */,
 				09A8B7962B73A79F003C751E /* User.swift in Sources */,
 				095709F12B7521D400C249AD /* TestsView.swift in Sources */,
 				095709EB2B74FFC500C249AD /* QuestionView.swift in Sources */,
@@ -427,6 +448,9 @@
 				09E777F62B74D77A00BAC2ED /* SettingsRowView.swift in Sources */,
 				09A8B75A2B70EED3003C751E /* Validator.swift in Sources */,
 				099FD64E2B7E303D0099D78F /* CardView.swift in Sources */,
+				09D4F6122B80D7050000B4D1 /* Word.swift in Sources */,
+				09D4F60C2B80B1D10000B4D1 /* CardsListView.swift in Sources */,
+				09D4F60E2B80B5860000B4D1 /* CardsViewModel.swift in Sources */,
 				095709F72B75260B00C249AD /* ChatView.swift in Sources */,
 				095709E72B74FEB600C249AD /* Question.swift in Sources */,
 				09A8B7472B6FE592003C751E /* WelcomeView.swift in Sources */,
