@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
+    let title: String
     let word: Word
     
     var onSwipeLeft: () -> Void
@@ -16,53 +17,89 @@ struct CardView: View {
     @State private var isOpen: Bool = false
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.white)
-                .shadow(radius: 5)
-            VStack(alignment: .leading) {
-                Text(word.word)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                
-                Button(action: {
-                    isOpen.toggle()
-                }, label: {
+        VStack(alignment: .center) {
+            HStack {
+                Text("Cards: \(title)")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+ 
+            
+            Text(word.word)
+                .font(.system(size: 32, weight: .bold))
+                .padding(.vertical, 25)
+            
+            spoiler
+
+            Spacer()
+            
+            Divider()
+            
+            bottomButtons
+                .padding(.top, 8)
+        }
+        .padding()
+        .background(Color(.systemGray3))
+        .cornerRadius(15)
+        .frame(maxWidth: .infinity)
+        .shadow(radius: 5)
+    }
+    
+    
+    var spoiler: some View {
+        Button {
+            isOpen = true
+        } label: {
+            if isOpen {
+                HStack {
                     VStack(alignment: .leading) {
                         Text(word.translate)
-                            .font(.headline)
+                            .font(.title)
+                            .foregroundColor(.black)
                         Text("[\(word.transcription)]")
                             .font(.subheadline)
+                            .foregroundColor(.gray)
+                        ForEach(word.usage, id: \.self) { sentence in
+                            Text(sentence)
+                                .padding(.vertical, 10)
+                        }
                     }
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        .blur(radius: isOpen ? 0.2 : 7.0)
-                })
-                HStack {
-                    Button(action: {
-                        onSwipeLeft()
-                    }) {
-                        Text("I already know this word")
-                            .font(.subheadline)
-                            .foregroundColor(Color("themeDark"))
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    }
+                    .padding()
                     
-                    Text("||")
-                    
-                    Button(action: {
-                        onSwipeRight()
-                    }) {
-                        Text("Start learning this word")
-                            .font(.subheadline)
-                            .foregroundColor(Color("themeDark"))
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    }
-                }
-                .padding(.top, 25)
+                    Spacer()
+                }                
+            } else {
+                Image(systemName: "eye")
+                    .foregroundColor(Color(.black))
+                    .font(.title)
             }
-            .padding(15)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    
+    var bottomButtons: some View {
+        HStack {
+            Button(action: {
+                onSwipeLeft()
+            }) {
+                Text("I already know this word")
+                    .font(.footnote)
+                    .foregroundColor(Color("themeDark"))
+                    .frame(maxWidth: .infinity)
+            }
+            
+            Text("||")
+            
+            Button(action: {
+                onSwipeRight()
+            }) {
+                Text("Start learning this word")
+                    .font(.footnote)
+                    .foregroundColor(Color("themeDark"))
+                    .frame(maxWidth: .infinity)
+            }
         }
     }
 }

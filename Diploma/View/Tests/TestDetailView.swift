@@ -11,60 +11,52 @@ struct TestDetailView: View {
     @EnvironmentObject var viewModel: TestsViewModel
     
     var test: Test
+    var rules: String
     
-    @State private var showingResultSheet = false
+    @State private var currentQuestionIndex = 0
     @State private var selectedAnswers: [String] = []
-    @State private var backgroundSheetColor: Color = .red
+    @State private var showingResultSheet = false
     
     var body: some View {
-        ScrollView {
-            VStack {
-                if !selectedAnswers.isEmpty && !test.questions.isEmpty {
-                    ForEach(test.questions.indices, id: \.self) { index in
-                        QuestionView(
-                            question: test.questions[index],
-                            selectedAnswer: $selectedAnswers[index]
-                        )
-                        .padding(10)
-                    }
-                }
-                Button{
+        VStack(alignment: .leading) {
+            Text("Question \(currentQuestionIndex + 1) of \(test.questions.count)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 5)
+            Text(rules)
+                .font(.headline)
+                .padding(.horizontal, 20)
+            Spacer()
+
+            if currentQuestionIndex < test.questions.count && currentQuestionIndex < selectedAnswers.count {
+                QuestionView(question: test.questions[currentQuestionIndex], selectedAnswer: $selectedAnswers[currentQuestionIndex])
+                    .padding(15)
+            }
+            
+            Spacer()
+            
+            Button("Next") {
+                if currentQuestionIndex < test.questions.count - 1 {
+                    currentQuestionIndex += 1
+                } else {
                     Task {
                         await calculateAndShowResults()
                     }
-                } label: {
-                    Spacer()
-                    Text("Finish test")
-                    Spacer()
                 }
-                .padding()
-                .font(.system(.title2, design: .rounded, weight: .bold))
-                .foregroundColor(.green)
-                .background(Capsule().stroke(.green, lineWidth: 2))
-                .frame(width: 250, height: 100)
             }
+            .font(.subheadline)
+            .frame(maxWidth: .infinity)
+            .frame(height: 40)
+            .foregroundColor(.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 0.5)
+            )
+            .padding()
             .sheet(isPresented: $showingResultSheet) {
-                let answersPercentage: Double = calculateCorrectAnswersPercentage()
-                
-                if (0..<50).contains(answersPercentage) {
-                    TestResultView(text: "Not bad, try one more!",
-                                   correctAnswersPercentage: answersPercentage,
-                                   showingResultSheet: $showingResultSheet)
-                    .background(.red)
-                } else if (50..<100).contains(answersPercentage) {
-                    TestResultView(text: "Wow! Almost perfect!",
-                                   correctAnswersPercentage: answersPercentage,
-                                   showingResultSheet: $showingResultSheet)
-                    .background(Color("primaryLightViolet"))
-                } else if answersPercentage == 100 {
-                    TestResultView(text: "All answers are correct. Perfect!",
-                                   correctAnswersPercentage: answersPercentage,
-                                   showingResultSheet: $showingResultSheet)
-                    .background(.green)
-                } else {
-                    ProgressView()
-                }
- 
+                TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage(), 
+                               showingResultSheet: $showingResultSheet)
             }
             .onAppear {
                 selectedAnswers = Array(repeating: "", count: test.questions.count)

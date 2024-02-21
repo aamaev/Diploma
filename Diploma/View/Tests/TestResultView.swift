@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TestResultView: View {
-    var text: String
     var correctAnswersPercentage: Double
     
     @Binding var showingResultSheet: Bool
@@ -17,23 +16,46 @@ struct TestResultView: View {
         VStack {
             HStack {
                 Spacer()
+                
                 Button(action: {
                     showingResultSheet = false
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
+                        .foregroundColor(.black)
                 }
                 .padding()
             }
-            Text(text)
-                .font(.title)
-                .padding()
-            Text("Correct Answers: \(String(format: "%.1f", correctAnswersPercentage))%")
+
+            Text("Correct Answers: \(String(format: "%.0f", correctAnswersPercentage))%")
                 .font(.headline)
                 .padding()
             
+            if (0..<50).contains(correctAnswersPercentage) {
+                VStack {
+                    Text("Not bad, but try one more time!")
+                    Text("🤔")
+                }
+                .font(.title)
+                .padding(.horizontal, 30)
+            } else if (50..<100).contains(correctAnswersPercentage) {
+                VStack {
+                    Text("Wow! Almost perfect!")
+                    Text("🤗")
+                }
+                .font(.title)
+                .padding(.horizontal, 30)
+            } else {
+                VStack {
+                    Text("All answers are correct. Perfect!")
+                    Text("😎")
+                }
+                .font(.title)
+                .padding(.horizontal, 30)
+            }
+                
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(correctAnswersPercentage > 50 ? .mint : .brown)
     }
 }

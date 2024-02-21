@@ -15,7 +15,7 @@ struct TestsView: View {
         List {
             Section(header: Text("Tests").font(.headline)) {
                 ForEach(searchResults, id: \.id) { test in
-                    NavigationLink(destination: TestDetailView(test: test)) {
+                    NavigationLink(destination: TestDetailView(test: test, rules: test.rules)) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(test.title)
