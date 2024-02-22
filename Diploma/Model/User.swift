@@ -12,5 +12,9 @@ struct User: Identifiable, Codable {
     let userName: String
     let email: String
     
-    
+    enum CodingKeys: CodingKey {
+        case id
+        case userName
+        case email
+    }
 }

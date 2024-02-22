@@ -17,6 +17,7 @@ struct DiplomaApp: App {
     @StateObject var authModel = AuthViewModel()
     @StateObject var testsModel = TestsViewModel()
     @StateObject var cardsModel = CardsViewModel()
+    //@StateObject var chatModel = ChatViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -24,6 +25,7 @@ struct DiplomaApp: App {
                 .environmentObject(authModel)
                 .environmentObject(testsModel)
                 .environmentObject(cardsModel)
+                //.environmentObject(chatModel)
         }
     }
 }
