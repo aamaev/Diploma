@@ -13,14 +13,8 @@ import FirebaseFirestoreSwift
 class TestsViewModel: ObservableObject {
     @Published var tests: [Test]?
     @Published var testPercentages: [String: Double] = [:]
-        
-    init() {
-        Task {
-            await fetchTests()
-            await fetchTestPercentages()
-        }
-    }
-        
+    
+                
     func fetchTests() async {
         do {
             let snapshot = try await Firestore.firestore().collection("tests").getDocuments()
@@ -65,6 +59,7 @@ class TestsViewModel: ObservableObject {
             }
             
             self.testPercentages = percentages
+            print(testPercentages)
         } catch {
             print("DEBUG: Failed to fetch test percentages with error \(error.localizedDescription)")
         }

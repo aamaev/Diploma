@@ -10,7 +10,7 @@ import SwiftUI
 struct TestResultView: View {
     var correctAnswersPercentage: Double
     
-    @Binding var showingResultSheet: Bool
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct TestResultView: View {
                 Spacer()
                 
                 Button(action: {
-                    showingResultSheet = false
+                    dismiss()
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)

@@ -10,18 +10,27 @@ import Firebase
 import FirebaseFirestoreSwift
  
 @MainActor
-class ChatViewModel: ObservableObject {
+class UserChatViewModel: ObservableObject {
     @Published var chatUser: User?
     @Published var chatText = ""
     @Published var chatMessages = [ChatMessage]()
-        
-    init(chatUser: User?) {
-        self.chatUser = chatUser
-        
-        fetchMessages()
+    
+    init(userId: String) {
+        Task {
+            await fetchChatUser(userId: userId)
+            fetchMessages()
+        }
     }
     
-    
+    func fetchChatUser(userId: String) async {
+        do {
+            let documentSnapshot = try await Firestore.firestore().collection("users").document(userId).getDocument()
+            self.chatUser = try documentSnapshot.data(as: User.self)
+        } catch {
+            print("DEBUG: Failed to fetch chat user with error: \(error.localizedDescription)")
+        }
+    }
+        
     func fetchMessages() {
         guard let fromId = Auth.auth().currentUser?.uid else { return }
         guard let toId = chatUser?.id else { return }
@@ -32,13 +41,14 @@ class ChatViewModel: ObservableObject {
             .order(by: "timestamp")
             .addSnapshotListener { snapshot, error in
                 guard let snapshot = snapshot else {
-                    print("Error fetching snapshot: \(error?.localizedDescription ?? "Unknown error")")
+                    print("DEBUG: Error fetching messages with error: \(error?.localizedDescription ?? "Unknown error")")
                     return
                 }
                 
                 for change in snapshot.documentChanges {
                     if change.type == .added {
                         let data = change.document.data()
+                        
                         let toId = data["toId"] as? String ?? ""
                         let fromId = data["fromId"] as? String ?? ""
                         let text = data["text"] as? String ?? ""
@@ -67,13 +77,15 @@ class ChatViewModel: ObservableObject {
                 ["fromId": fromId,
                  "toId": toId,
                  "text": self.chatText,
-                 "timestamp": FieldValue.serverTimestamp()]
+                 "timestamp": Timestamp()]
             
             try await document.setData(messageData)
             
             let recipientMessageDocument = Firestore.firestore().collection("messages").document(toId).collection(fromId).document()
             
             try await recipientMessageDocument.setData(messageData)
+            
+            await recentMessage()
             
             self.chatText = ""
         } catch {
@@ -96,14 +108,23 @@ class ChatViewModel: ObservableObject {
                 "text": self.chatText,
                 "fromId": uid,
                 "toId": toId,
-                "userName": chatUser?.userName ?? ""
+                "userName": chatUser?.userName ?? "",
+                "profilePictureURL": chatUser?.profilePictureURL ?? ""
             ]
             
             try await document.setData(data)
             
+            
+            let recipientMessageDocument = Firestore.firestore().collection("recent_messages")
+                                                .document(toId)
+                                                .collection("messages")
+                                                .document(uid)
+            
+            try await recipientMessageDocument.setData(data)
+            
         } catch {
-            print("DEBUG: Failed to fetch recent messages with error: \(error.localizedDescription)")
+            print("DEBUG: Failed to persist recent messages with error: \(error.localizedDescription)")
         }
     }
-        
+
 }

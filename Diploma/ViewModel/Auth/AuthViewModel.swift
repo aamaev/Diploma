@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 import FirebaseFirestoreSwift
 import GoogleSignIn
 
@@ -75,10 +76,11 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
+        self.userSession = nil
+        self.currentUser = nil
+        
         do {
             try Auth.auth().signOut()
-            self.userSession = nil
-            self.currentUser = nil
         } catch {
             print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
         }
@@ -109,15 +111,40 @@ class AuthViewModel: ObservableObject {
     func deleteAccount() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
+        self.userSession = nil
+        self.currentUser = nil
+        
         do {
             try await Auth.auth().currentUser?.delete()
             try await Firestore.firestore().collection("users").document(uid).delete()
-            self.userSession = nil
-            self.currentUser = nil
         } catch {
             print("DEBUG: Failed to delete user with error: \(error.localizedDescription)")
         }
     }
     
+    func uploadProfilePicture(image: UIImage) async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let ref = Storage.storage().reference(withPath: uid)
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        
+        do {
+            ref.putData(imageData, metadata: nil)
+            
+            let downloadURL = try await ref.downloadURL()
+            
+            var updatedUser = self.currentUser
+            updatedUser?.profilePictureURL = downloadURL.absoluteString
+            
+            let userRef = Firestore.firestore().collection("users").document(uid)
+            try userRef.setData(from: updatedUser, merge: true)
+            
+            self.currentUser = updatedUser
+        } catch {
+            print("DEBUG: Error uploading profile picture: \(error.localizedDescription)")
+        }
+    }
+
 }
 

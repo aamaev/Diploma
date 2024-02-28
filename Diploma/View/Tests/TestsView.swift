@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestsView: View {
-    @EnvironmentObject var viewModel: TestsViewModel
+    @ObservedObject var viewModel = TestsViewModel()
     @State private var searchText = ""
         
     var body: some View {
@@ -35,6 +35,12 @@ struct TestsView: View {
             }
         }
         .searchable(text: $searchText)
+        .onAppear() {
+            Task {
+                await viewModel.fetchTests()
+                await viewModel.fetchTestPercentages()
+            }
+        }
     }
     
     var searchResults: [Test] {
@@ -48,8 +54,6 @@ struct TestsView: View {
 
 
 
-#Preview {
-    TestsView()
-}
+
 
 

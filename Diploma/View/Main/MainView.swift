@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var testsViewModel = TestsViewModel()
+    
     var body: some View {
         TabView {
             ChatView()
@@ -24,7 +26,7 @@ struct MainView: View {
                 }
             
             NavigationView {
-                TestsView()
+                TestsView(viewModel: testsViewModel)
             }
                 .tabItem {
                     Image(systemName: "book.fill")

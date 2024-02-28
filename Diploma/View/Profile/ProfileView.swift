@@ -6,20 +6,38 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     @State private var showingConfirmationAlert = false
+    @State private var showingImagePicker = false
+    @State var selectedImage: UIImage?
     
     var body: some View {
         if let user = viewModel.currentUser {
             List {
                 Section {
                     HStack {
-                        Image(systemName: "person.circle.fill")
-                            .font(.system(size: 60))
-                            .foregroundColor(.gray)
+                        Button {
+                            showingImagePicker.toggle()
+                        } label: {
+                            VStack {
+                                if let image = viewModel.currentUser?.profilePictureURL {
+                                    WebImage(url: URL(string: image))
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .cornerRadius(30)
+                                        .padding(4)
+                                } else {
+                                    Image(systemName: "person.circle.fill")
+                                        .font(.system(size: 60))
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                        }
                         VStack(alignment: .leading, spacing: 4) {
                             Text(user.userName)
                                 .font(.subheadline)
@@ -29,8 +47,19 @@ struct ProfileView: View {
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
+                        .sheet(isPresented: $showingImagePicker, onDismiss: nil) {
+                            ImagePicker(image: self.$selectedImage)
+                                .onDisappear {
+                                    if let image = selectedImage {
+                                        Task {
+                                            await viewModel.uploadProfilePicture(image: image)
+                                        }
+                                    }
+                                }
+                        }
                     }
                 }
+                
                 Section("General") {
                     
                 }
@@ -71,8 +100,10 @@ struct ProfileView: View {
             ProgressView()
         }
     }
+
 }
 
 #Preview {
     ProfileView()
+        .environmentObject(AuthViewModel())
 }

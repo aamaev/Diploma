@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestDetailView: View {
-    @EnvironmentObject var viewModel: TestsViewModel
+    @ObservedObject var viewModel = TestsViewModel()
     
     var test: Test
     var rules: String
@@ -55,8 +55,7 @@ struct TestDetailView: View {
             )
             .padding()
             .sheet(isPresented: $showingResultSheet) {
-                TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage(), 
-                               showingResultSheet: $showingResultSheet)
+                TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage())
             }
             .onAppear {
                 selectedAnswers = Array(repeating: "", count: test.questions.count)
