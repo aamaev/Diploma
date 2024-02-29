@@ -16,7 +16,6 @@ struct QuestionView: View {
         VStack(alignment: .leading) {
             Text("Select one")
                 .font(.subheadline)
-                .foregroundColor(.black)
                 .padding(.bottom, 5)
             VStack(alignment: .leading) {
                 Text("\(question.question)")
@@ -31,8 +30,8 @@ struct QuestionView: View {
                             Text(option)
                                 .fontWeight(.regular)
                                 .multilineTextAlignment(.leading)
-                                .foregroundColor(Color("themeDark"))
                                 .padding()
+                                .foregroundColor(.gray)
                             Spacer()
                             if selectedAnswer == option {
                                 Image(systemName: "checkmark.circle.fill")
@@ -40,7 +39,7 @@ struct QuestionView: View {
                                     .padding(5)
                             }
                         }
-                        .background(.white)
+                        .background(Color(.systemBackground))
                         .cornerRadius(10)
                     }
                     .padding(.vertical, 5)
@@ -54,4 +53,5 @@ struct QuestionView: View {
         .frame(maxWidth: .infinity)
     }
 }
+
 

@@ -131,7 +131,7 @@ struct EmailTextField: View {
     
     var body: some View {
         VStack {
-            TextField("Email", text: $email)
+            TextField("", text: $email, prompt: Text("Email").foregroundColor(.gray))
                 .keyboardType(.emailAddress)
                 .focused($focusedField, equals: .email)
                 .padding()
@@ -145,6 +145,7 @@ struct EmailTextField: View {
                 .onChange(of: email) { oldValue, newValue in
                     isValidEmail = Validator.validateEmail(newValue)
                 }
+            
             
             if !isValidEmail {
                 HStack {
@@ -169,7 +170,7 @@ struct PasswordTextField: View {
     
     var body: some View {
         VStack {
-            SecureField(placeholder, text: $password)
+            SecureField("", text: $password, prompt: Text(placeholder).foregroundColor(.gray))
                 .focused($focusedField, equals: .password)
                 .padding()
                 .background(Color("primaryLightViolet"))
@@ -195,5 +196,6 @@ struct PasswordTextField: View {
         }
     }
 }
+
 
 

@@ -25,6 +25,7 @@ struct UserChatView: View {
             chatBottomBar
         }
         .navigationTitle(viewModel.chatUser?.userName ?? "")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if let image = viewModel.chatUser?.profilePictureURL {
                 WebImage(url: URL(string: image))
@@ -34,7 +35,7 @@ struct UserChatView: View {
                     .cornerRadius(20)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        //.background(.gray)
     }
     
     var messages: some View {
@@ -88,7 +89,6 @@ struct UserChatView: View {
                 
             }
         }
-        .background(Color(.init(white: 0.95, alpha: 1)))
     }
     
     

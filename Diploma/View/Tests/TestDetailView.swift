@@ -48,7 +48,7 @@ struct TestDetailView: View {
             .font(.subheadline)
             .frame(maxWidth: .infinity)
             .frame(height: 40)
-            .foregroundColor(.black)
+            .foregroundColor(.gray)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.gray, lineWidth: 0.5)

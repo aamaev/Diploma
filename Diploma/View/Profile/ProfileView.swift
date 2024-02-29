@@ -15,9 +15,18 @@ struct ProfileView: View {
     @State private var showingImagePicker = false
     @State var selectedImage: UIImage?
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    
+    init() {
+        let savedTheme = UserDefaults.standard.bool(forKey: "isDarkMode")
+        isDarkMode = savedTheme
+        UIApplication.shared.windows.first?.rootViewController?.view.window?.overrideUserInterfaceStyle = savedTheme ? .dark : .light
+    }
+    
     var body: some View {
         if let user = viewModel.currentUser {
             List {
+                
                 Section {
                     HStack {
                         Button {
@@ -61,7 +70,14 @@ struct ProfileView: View {
                 }
                 
                 Section("General") {
-                    
+                    Toggle(isOn: $isDarkMode) {
+                        Text("Dark Mode")
+                    }
+                    .onChange(of: isDarkMode) { oldValue, newValue in
+                        UserDefaults.standard.set(newValue, forKey: "isDarkMode")
+
+                        UIApplication.shared.windows.first?.rootViewController?.view.window?.overrideUserInterfaceStyle = newValue ? .dark : .light
+                    }
                 }
                 
                 Section("Account") {

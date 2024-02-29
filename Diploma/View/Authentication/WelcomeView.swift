@@ -20,7 +20,7 @@ struct WelcomeView: View {
         NavigationStack {
             
             VStack {
-                Image("person-learning")
+                Image("person-learning2")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 450)
