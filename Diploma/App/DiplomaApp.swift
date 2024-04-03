@@ -12,11 +12,13 @@ import GoogleSignIn
 @main
 struct DiplomaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(AuthViewModel())
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

@@ -25,6 +25,12 @@ struct MainView: View {
                     Text("Cards")
                 }
             
+            LeaderboardView()
+                .tabItem {
+                    Image(systemName: "trophy.fill")
+                    Text("Leaderboard")
+                }
+            
             NavigationView {
                 TestsView(viewModel: testsViewModel)
             }

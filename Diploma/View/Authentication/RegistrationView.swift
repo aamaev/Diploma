@@ -43,7 +43,8 @@ struct RegistrationView: View {
                 EmailTextField(email: $email, 
                                isValidEmail: $isValidEmail)
                 UserNameTextField(userName: $userName,
-                                  isValidUserName: $isValidUserName)
+                                  isValidUserName: $isValidUserName,
+                                  placeholder: "User Name")
                 PasswordTextField(password: $password,
                                   isValidPassword: $isValidPassword,
                                   errorText: "Your password is not valid.",
@@ -106,12 +107,13 @@ struct RegistrationView: View {
 struct UserNameTextField: View {
     @Binding var userName: String
     @Binding var isValidUserName: Bool
+    let placeholder: String
     
     @FocusState var focusedField: FocusedField?
     
     var body: some View {
         VStack {
-            TextField("User name", text: $userName)
+            TextField("", text: $userName, prompt: Text(placeholder).foregroundColor(.gray))
                 .focused($focusedField, equals: .userName)
                 .padding()
                 .background(Color("primaryLightViolet"))

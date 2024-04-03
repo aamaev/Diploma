@@ -24,6 +24,7 @@ struct TestsView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
                             }
+                            Spacer()
                             if let percentage = viewModel.getTestPersentage(forTestID: test.id) {
                                 Text("\(String(format: "%.2f", percentage))%")
                                     .foregroundColor(.green)
@@ -35,12 +36,6 @@ struct TestsView: View {
             }
         }
         .searchable(text: $searchText)
-        .onAppear() {
-            Task {
-                await viewModel.fetchTests()
-                await viewModel.fetchTestPercentages()
-            }
-        }
     }
     
     var searchResults: [Test] {

@@ -7,26 +7,24 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import PhotosUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     @State private var showingConfirmationAlert = false
     @State private var showingImagePicker = false
-    @State var selectedImage: UIImage?
+    @State private var selectedImage: UIImage?
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-    init() {
-        let savedTheme = UserDefaults.standard.bool(forKey: "isDarkMode")
-        isDarkMode = savedTheme
-        UIApplication.shared.windows.first?.rootViewController?.view.window?.overrideUserInterfaceStyle = savedTheme ? .dark : .light
-    }
+//    init() {
+//        let savedTheme = UserDefaults.standard.bool(forKey: "isDarkMode")
+//    }
     
     var body: some View {
         if let user = viewModel.currentUser {
             List {
-                
                 Section {
                     HStack {
                         Button {
@@ -63,21 +61,26 @@ struct ProfileView: View {
                                         Task {
                                             await viewModel.uploadProfilePicture(image: image)
                                         }
+                                        selectedImage = nil
                                     }
                                 }
+                        }
+                    }
+                    VStack {
+                        if let progress = user.progress {
+                            let currentProgress = Int((Int(progress.truncatingRemainder(dividingBy: 100)) >= 100) ? Int(progress - 100) : Int(progress.truncatingRemainder(dividingBy: 100)))
+                            
+                            ProgressView(value: Float(currentProgress), total: 100) {
+                                Text("Level \(Int(progress / 100))")
+                            } currentValueLabel: {
+                                Text("Current Progress: \(currentProgress)")
+                            }
                         }
                     }
                 }
                 
                 Section("General") {
-                    Toggle(isOn: $isDarkMode) {
-                        Text("Dark Mode")
-                    }
-                    .onChange(of: isDarkMode) { oldValue, newValue in
-                        UserDefaults.standard.set(newValue, forKey: "isDarkMode")
-
-                        UIApplication.shared.windows.first?.rootViewController?.view.window?.overrideUserInterfaceStyle = newValue ? .dark : .light
-                    }
+                    Toggle("Dark Mode", isOn: $isDarkMode)
                 }
                 
                 Section("Account") {
@@ -116,7 +119,6 @@ struct ProfileView: View {
             ProgressView()
         }
     }
-
 }
 
 #Preview {

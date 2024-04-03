@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0929F92E2BA5E971005B132D /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F92D2BA5E971005B132D /* LeaderboardView.swift */; };
+		0929F9312BA5EAEE005B132D /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F9302BA5EAEE005B132D /* LeaderboardViewModel.swift */; };
+		0929F9332BA5ECC9005B132D /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F9322BA5ECC9005B132D /* LeaderboardUser.swift */; };
 		0933B0A52B8628B400A0995C /* UserChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933B0A42B8628B400A0995C /* UserChatView.swift */; };
 		094E16CA2B78B91B00602A47 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E16C92B78B91B00602A47 /* Test.swift */; };
 		095709E72B74FEB600C249AD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095709E62B74FEB600C249AD /* Question.swift */; };
@@ -76,6 +79,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0929F92D2BA5E971005B132D /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		0929F9302BA5EAEE005B132D /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		0929F9322BA5ECC9005B132D /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
 		0933B0A42B8628B400A0995C /* UserChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatView.swift; sourceTree = "<group>"; };
 		094E16C92B78B91B00602A47 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		095709E62B74FEB600C249AD /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -156,6 +162,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0929F92C2BA5E959005B132D /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				0929F92D2BA5E971005B132D /* LeaderboardView.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		0929F92F2BA5EAD3005B132D /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				0929F9302BA5EAEE005B132D /* LeaderboardViewModel.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
 		095709E82B74FFA800C249AD /* Question */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +267,7 @@
 		09A8B7552B70E87B003C751E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0929F92C2BA5E959005B132D /* Leaderboard */,
 				099FD64C2B7E30100099D78F /* Cards */,
 				095709F42B7525F700C249AD /* Chat */,
 				095709EF2B7521C600C249AD /* Tests */,
@@ -277,6 +300,7 @@
 				09D4F6112B80D7050000B4D1 /* Word.swift */,
 				0966F9102B876FD100BF55E5 /* ChatMessage.swift */,
 				09B8D8DD2B8E06110078721C /* RecentMessage.swift */,
+				0929F9322BA5ECC9005B132D /* LeaderboardUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 		09A8B7972B73A9FF003C751E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0929F92F2BA5EAD3005B132D /* Leaderboard */,
 				09B8D8D22B8B3AFD0078721C /* Auth */,
 				09B8D8D32B8B3B040078721C /* Tests */,
 				09B8D8D42B8B3B0A0078721C /* Cards */,
@@ -491,6 +516,7 @@
 				09E777F32B74D2B400BAC2ED /* ProfileView.swift in Sources */,
 				0966F9132B8A2E5900BF55E5 /* ChatViewModel.swift in Sources */,
 				09A8B7572B70E927003C751E /* RegistrationView.swift in Sources */,
+				0929F92E2BA5E971005B132D /* LeaderboardView.swift in Sources */,
 				094E16CA2B78B91B00602A47 /* Test.swift in Sources */,
 				09D4F6102B80B5EE0000B4D1 /* Card.swift in Sources */,
 				09D4F61C2B8612230000B4D1 /* UserChatViewModel.swift in Sources */,
@@ -510,10 +536,12 @@
 				09B8D8D72B8B3D840078721C /* ImagePicker.swift in Sources */,
 				09D4F60C2B80B1D10000B4D1 /* CardsListView.swift in Sources */,
 				09D4F60E2B80B5860000B4D1 /* CardsViewModel.swift in Sources */,
+				0929F9332BA5ECC9005B132D /* LeaderboardUser.swift in Sources */,
 				095709F72B75260B00C249AD /* ChatView.swift in Sources */,
 				095709E72B74FEB600C249AD /* Question.swift in Sources */,
 				09C2AEBA2B8E4AC2005D65B9 /* timeFormatter.swift in Sources */,
 				09A8B7472B6FE592003C751E /* WelcomeView.swift in Sources */,
+				0929F9312BA5EAEE005B132D /* LeaderboardViewModel.swift in Sources */,
 				09A8B7452B6FE592003C751E /* DiplomaApp.swift in Sources */,
 				09570A042B76472200C249AD /* ApplicationUtility.swift in Sources */,
 			);

@@ -14,7 +14,13 @@ class TestsViewModel: ObservableObject {
     @Published var tests: [Test]?
     @Published var testPercentages: [String: Double] = [:]
     
-                
+    init() {
+        Task {
+            await fetchTests()
+            await fetchTestPercentages()
+        }
+    }
+    
     func fetchTests() async {
         do {
             let snapshot = try await Firestore.firestore().collection("tests").getDocuments()
@@ -73,7 +79,8 @@ class TestsViewModel: ObservableObject {
         guard let currentUser = Auth.auth().currentUser else { return }
         
         do {
-            let userTestResultsRef = Firestore.firestore().collection("users").document(currentUser.uid).collection("testResults")
+            let userRef = Firestore.firestore().collection("users").document(currentUser.uid)
+            let userTestResultsRef = userRef.collection("testResults")
             
             let testResultDocRef = userTestResultsRef.document(test.id)
             
@@ -85,6 +92,18 @@ class TestsViewModel: ObservableObject {
             ]
             
             try await testResultDocRef.setData(testResultData)
+            
+            var currentProgress = 0
+            let userDoc = try await userRef.getDocument()
+            if let userData = userDoc.data(),
+               let currentProgressValue = userData["progress"] as? Int {
+                currentProgress = currentProgressValue
+            }
+            
+            let updatedProgress = currentProgress + Int(50*correctAnswersPercentage/100)
+            
+            try await userRef.updateData(["progress": updatedProgress])
+            
             await fetchTestPercentages()
             
             print("DEBUG: Test result saved successfully!")
