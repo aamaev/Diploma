@@ -23,7 +23,7 @@ struct CardsListView: View {
                             NavigationLink(destination: CardsView(card: card)) {
                                 RoundedRectangle(cornerRadius: 20)
                                     .aspectRatio(10.0 / 7.0, contentMode: .fit)
-                                    .foregroundStyle(card.color!.gradient.opacity(0.65))
+                                    .foregroundStyle(card.color.gradient.opacity(0.65))
                                     .containerRelativeFrame(.horizontal,
                                                             count: verticalSizeClass == .regular ? 2 : 4,
                                                             spacing: 5)

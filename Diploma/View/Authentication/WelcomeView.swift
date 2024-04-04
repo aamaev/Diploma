@@ -18,7 +18,6 @@ struct WelcomeView: View {
     
     var body: some View {
         NavigationStack {
-            
             VStack {
                 Image("person-learning2")
                     .resizable()
@@ -27,7 +26,6 @@ struct WelcomeView: View {
                     
                 Text("Improve your English right now")
                     .font(.system(size: 36, weight: .bold))
-                    
             }
             
             

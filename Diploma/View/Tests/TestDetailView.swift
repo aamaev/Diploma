@@ -57,9 +57,7 @@ struct TestDetailView: View {
             .sheet(isPresented: $showingResultSheet) {
                 TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage())
                     .onDisappear {
-                        if let navController = navigationController {
-                            navController.popToRoot()
-                        }
+                        
                     }
             }
             .onAppear {

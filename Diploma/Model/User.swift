@@ -13,6 +13,7 @@ struct User: Identifiable, Codable {
     let email: String
     var profilePictureURL: String?
     var progress: Double? = 0.0
+    var firstLog: Bool? = true
     
     enum CodingKeys: CodingKey {
         case id
@@ -20,5 +21,6 @@ struct User: Identifiable, Codable {
         case email
         case profilePictureURL
         case progress
+        case firstLog
     }
 }

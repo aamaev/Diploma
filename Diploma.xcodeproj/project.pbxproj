@@ -23,6 +23,8 @@
 		09570A042B76472200C249AD /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09570A032B76472200C249AD /* ApplicationUtility.swift */; };
 		0966F9112B876FD100BF55E5 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966F9102B876FD100BF55E5 /* ChatMessage.swift */; };
 		0966F9132B8A2E5900BF55E5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966F9122B8A2E5900BF55E5 /* ChatViewModel.swift */; };
+		0998D9762BBE97E700C46562 /* WelcomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998D9752BBE97E700C46562 /* WelcomeInfoView.swift */; };
+		0998D9782BBEA52F00C46562 /* PagingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998D9772BBEA52F00C46562 /* PagingIndicator.swift */; };
 		099FD64E2B7E303D0099D78F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FD64D2B7E303D0099D78F /* CardView.swift */; };
 		099FD6502B7E39480099D78F /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FD64F2B7E39480099D78F /* CardsView.swift */; };
 		09A8B7452B6FE592003C751E /* DiplomaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B7442B6FE592003C751E /* DiplomaApp.swift */; };
@@ -94,6 +96,8 @@
 		09570A032B76472200C249AD /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		0966F9102B876FD100BF55E5 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		0966F9122B8A2E5900BF55E5 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		0998D9752BBE97E700C46562 /* WelcomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoView.swift; sourceTree = "<group>"; };
+		0998D9772BBEA52F00C46562 /* PagingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicator.swift; sourceTree = "<group>"; };
 		099FD64D2B7E303D0099D78F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		099FD64F2B7E39480099D78F /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		09A8B7412B6FE592003C751E /* Diploma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diploma.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +219,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		0998D9742BBE97DA00C46562 /* WelcomeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				0998D9752BBE97E700C46562 /* WelcomeInfoView.swift */,
+			);
+			path = WelcomeInfo;
+			sourceTree = "<group>";
+		};
 		099FD64C2B7E30100099D78F /* Cards */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +282,7 @@
 		09A8B7552B70E87B003C751E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0998D9742BBE97DA00C46562 /* WelcomeInfo */,
 				0929F92C2BA5E959005B132D /* Leaderboard */,
 				099FD64C2B7E30100099D78F /* Cards */,
 				095709F42B7525F700C249AD /* Chat */,
@@ -289,6 +302,7 @@
 				09A8B7592B70EED3003C751E /* Validator.swift */,
 				09B8D8D62B8B3D840078721C /* ImagePicker.swift */,
 				09C2AEB92B8E4AC2005D65B9 /* timeFormatter.swift */,
+				0998D9772BBEA52F00C46562 /* PagingIndicator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -536,6 +550,7 @@
 				09A8B75A2B70EED3003C751E /* Validator.swift in Sources */,
 				099FD64E2B7E303D0099D78F /* CardView.swift in Sources */,
 				09D4F6122B80D7050000B4D1 /* Word.swift in Sources */,
+				0998D9762BBE97E700C46562 /* WelcomeInfoView.swift in Sources */,
 				09B8D8D72B8B3D840078721C /* ImagePicker.swift in Sources */,
 				094B8D7D2BBD80D50031C59A /* AddCardView.swift in Sources */,
 				09D4F60C2B80B1D10000B4D1 /* CardsListView.swift in Sources */,
@@ -544,6 +559,7 @@
 				095709F72B75260B00C249AD /* ChatView.swift in Sources */,
 				095709E72B74FEB600C249AD /* Question.swift in Sources */,
 				09C2AEBA2B8E4AC2005D65B9 /* timeFormatter.swift in Sources */,
+				0998D9782BBEA52F00C46562 /* PagingIndicator.swift in Sources */,
 				09A8B7472B6FE592003C751E /* WelcomeView.swift in Sources */,
 				0929F9312BA5EAEE005B132D /* LeaderboardViewModel.swift in Sources */,
 				09A8B7452B6FE592003C751E /* DiplomaApp.swift in Sources */,

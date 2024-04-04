@@ -12,7 +12,7 @@ struct Card: Hashable, Equatable, Identifiable {
     var id: UUID = .init()
     var title: String
     var words: [Word]
-    var color: Color?
+    var color: Color
     
     enum CodingKeys: CodingKey {
         case title

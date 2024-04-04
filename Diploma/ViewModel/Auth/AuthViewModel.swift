@@ -145,6 +145,26 @@ class AuthViewModel: ObservableObject {
             print("DEBUG: Error uploading profile picture: \(error.localizedDescription)")
         }
     }
+    
+    func firstLog() async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        do {
+            let userDocument = try await Firestore.firestore().collection("users").document(uid).getDocument()
+
+            guard var user = try? userDocument.data(as: User.self) else {
+                print("Failed to parse user document")
+                return
+            }
+
+            user.firstLog = false
+
+            try Firestore.firestore().collection("users").document(uid).setData(from: user)
+        } catch {
+            print("DEBUG: Error updating user firstLog", error.localizedDescription)
+        }
+
+    }
 
 }
 
