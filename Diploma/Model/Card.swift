@@ -12,18 +12,38 @@ struct Card: Hashable, Equatable, Identifiable {
     var id: UUID = .init()
     var title: String
     var words: [Word]
-    let color: Color
-    
-    init(title: String, words: [Word]) {
-        self.title = title
-        self.words = words
-        self.color = Colors.randomElement()!
-    }
+    var color: Color?
     
     enum CodingKeys: CodingKey {
         case title
         case words
+        case cardColor
     }
 }
 
-let Colors: [Color] = [.teal, .pink, .indigo, .orange, .purple, .yellow, .green, .blue, .purple, .brown, .red]
+
+extension Color {
+    static func colorFromString(_ name: String) -> Color {
+        switch name {
+        case "yellow":
+            return Color.yellow
+        case "green":
+            return Color.green
+        case "teal":
+            return Color.teal
+        case "indigo":
+            return Color.indigo
+        case "orange":
+            return Color.orange
+        case "purple":
+            return Color.purple
+        case "brown":
+            return Color.brown
+        case "red":
+            return Color.red
+        default:
+            return Color.accentColor
+        }
+    }
+}
+

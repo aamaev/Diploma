@@ -13,49 +13,66 @@ struct TestResultView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
+        NavigationStack {
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title)
+                            .foregroundColor(.black)
+                    }
+                    .padding()
+                }
+
+                Text("Correct Answers: \(String(format: "%.0f", correctAnswersPercentage))%")
+                    .font(.headline)
+                    .padding()
+                
+                if (0..<50).contains(correctAnswersPercentage) {
+                    VStack {
+                        Text("Not bad, but try one more time!")
+                        Image("person-sad")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    .font(.title)
+                    .padding(.horizontal, 30)
+                } else if (50..<100).contains(correctAnswersPercentage) {
+                    VStack {
+                        Text("Wow! Almost perfect!")
+                        Image("person-sad")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    .font(.title)
+                    .padding(.horizontal, 30)
+                } else {
+                    VStack {
+                        Text("All answers are correct. Perfect!")
+                        Image("person-happy")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    .font(.title)
+                    .padding(.horizontal, 30)
+                }
                 
                 Button(action: {
                     dismiss()
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.black)
-                }
-                .padding()
+                }, label: {
+                    Text("Exit")
+                })
+                .buttonStyle(.bordered)
+                .tint(.black)
+        
+                Spacer()
             }
-
-            Text("Correct Answers: \(String(format: "%.0f", correctAnswersPercentage))%")
-                .font(.headline)
-                .padding()
-            
-            if (0..<50).contains(correctAnswersPercentage) {
-                VStack {
-                    Text("Not bad, but try one more time!")
-                    Text("🤔")
-                }
-                .font(.title)
-                .padding(.horizontal, 30)
-            } else if (50..<100).contains(correctAnswersPercentage) {
-                VStack {
-                    Text("Wow! Almost perfect!")
-                    Text("🤗")
-                }
-                .font(.title)
-                .padding(.horizontal, 30)
-            } else {
-                VStack {
-                    Text("All answers are correct. Perfect!")
-                    Text("😎")
-                }
-                .font(.title)
-                .padding(.horizontal, 30)
-            }
-                
-            Spacer()
+            .background(LinearGradient(gradient: Gradient(colors: [correctAnswersPercentage > 50 ? .green : .brown, .white]), startPoint: .top, endPoint: .bottom))
+            .navigationBarHidden(true)
         }
-        .background(correctAnswersPercentage > 50 ? .mint : .brown)
     }
 }

@@ -35,7 +35,6 @@ struct UserChatView: View {
                     .cornerRadius(20)
             }
         }
-        //.background(.gray)
     }
     
     var messages: some View {

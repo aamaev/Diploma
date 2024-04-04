@@ -10,21 +10,7 @@ import SwiftUI
 struct CardView: View {
     let title: String
     let word: Word
-    
-    let cardColors: [Color] = [
-        .green,
-        .teal,
-        .pink,
-        .indigo,
-        .orange,
-        .purple,
-        .yellow,
-        .green,
-        .blue,
-        .brown,
-        .red
-    ]
-    
+        
     var onSwipeLeft: () -> Void
     var onSwipeRight: () -> Void
     
@@ -36,7 +22,7 @@ struct CardView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundStyle(color.gradient)
-                .shadow(radius: 5)
+                .shadow(radius: 1)
             HStack {
                 VStack(alignment: .center) {
                     HStack {
@@ -79,7 +65,6 @@ struct CardView: View {
                     }
                 }
         )
-        
     }
     
     var spoiler: some View {
@@ -92,12 +77,14 @@ struct CardView: View {
                         Text(word.translate)
                             .font(.title)
                             .foregroundColor(.black)
-                        Text("[\(word.transcription)]")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                        ForEach(word.usage, id: \.self) { sentence in
-                            Text(sentence)
-                                .padding(.vertical, 10)
+                        if let transcription = word.transcription {
+                            Text("[\(transcription)]")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            ForEach(word.usage ?? [], id: \.self) { sentence in
+                                Text(sentence)
+                                    .padding(.vertical, 10)
+                            }
                         }
                     }
                     .padding()

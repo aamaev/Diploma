@@ -8,47 +8,50 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var testsViewModel = TestsViewModel()
-    
     var body: some View {
         TabView {
-            ChatView()
-                .tabItem {
-                    Image(systemName: "bubble.left.and.bubble.right.fill")
-                    Text("Chats")
-                }
-            NavigationView {
+            Group {
+                ChatView()
+                    .tabItem {
+                        Image(systemName: "bubble.left.and.bubble.right.fill")
+                        Text("Chats")
+                    }
+                
                 CardsListView()
+                    .tabItem {
+                        Image(systemName: "square.on.square")
+                        Text("Cards")
+                    }
+                
+                LeaderboardView()
+                    .tabItem {
+                        Image(systemName: "trophy.fill")
+                        Text("Leaderboard")
+                    }
+                
+                TestsView()
+                    .tabItem {
+                        Image(systemName: "book.fill")
+                        Text("Tests")
+                    }
+                
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Profile")
+                    }
             }
-                .tabItem {
-                    Image(systemName: "square.on.square")
-                    Text("Cards")
-                }
-            
-            LeaderboardView()
-                .tabItem {
-                    Image(systemName: "trophy.fill")
-                    Text("Leaderboard")
-                }
-            
-            NavigationView {
-                TestsView(viewModel: testsViewModel)
-            }
-                .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Tests")
-                }
-            
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Profile")
-                }
+            .toolbarBackground(.visible, for: .tabBar)
         }
-        .accentColor(.blue)
     }
 }
 
 #Preview {
     MainView()
 }
+
+
+
+
+
+

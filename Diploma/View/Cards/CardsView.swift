@@ -9,17 +9,16 @@ import SwiftUI
 
 struct CardsView: View {
     @State var card: Card
-    
-    @State private var cardOffset: CGSize = .zero
-    
+
     var body: some View {
         ZStack {
             if !card.words.isEmpty {
-                ForEach(card.words, id: \.self) { word in
+                ForEach(card.words.indices, id: \.self) { index in
                     CardView(title: card.title,
-                             word: word,
-                             onSwipeLeft: {self.onSwipeLeft(word)},
-                             onSwipeRight: {self.onSwipeRight(word)})
+                             word: card.words[index],
+                             onSwipeLeft: { self.onSwipeLeft(at: index) },
+                             onSwipeRight: { self.onSwipeRight(at: index) })
+                        .id(UUID())
                 }
             } else {
                 VStack {
@@ -35,18 +34,17 @@ struct CardsView: View {
                 }
             }
         }
-        Spacer()
     }
 
-    func onSwipeRight(_ word: Word) {
-        if let index = card.words.firstIndex(of: word) {
-            card.words.remove(at: index)
+    func onSwipeRight(at index: Int) {
+        if index < card.words.count {
+            let word = card.words.remove(at: index)
             card.words.insert(word, at: 0)
         }
     }
-    
-    func onSwipeLeft(_ word: Word) {
-        if let index = card.words.firstIndex(of: word) {
+
+    func onSwipeLeft(at index: Int) {
+        if index < card.words.count {
             card.words.remove(at: index)
         }
     }

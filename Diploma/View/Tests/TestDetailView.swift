@@ -56,6 +56,11 @@ struct TestDetailView: View {
             .padding()
             .sheet(isPresented: $showingResultSheet) {
                 TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage())
+                    .onDisappear {
+                        if let navController = navigationController {
+                            navController.popToRoot()
+                        }
+                    }
             }
             .onAppear {
                 selectedAnswers = Array(repeating: "", count: test.questions.count)

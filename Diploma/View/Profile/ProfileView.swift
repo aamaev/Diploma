@@ -18,10 +18,6 @@ struct ProfileView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-//    init() {
-//        let savedTheme = UserDefaults.standard.bool(forKey: "isDarkMode")
-//    }
-    
     var body: some View {
         if let user = viewModel.currentUser {
             List {
@@ -113,6 +109,11 @@ struct ProfileView: View {
                             }
                         )
                     }
+                }
+            }
+            .refreshable {
+                Task {
+                    await viewModel.fetchUser()
                 }
             }
         } else {

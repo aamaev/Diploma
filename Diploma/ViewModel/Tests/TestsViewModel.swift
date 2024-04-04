@@ -91,22 +91,34 @@ class TestsViewModel: ObservableObject {
                 "timestamp": FieldValue.serverTimestamp()
             ]
             
-            try await testResultDocRef.setData(testResultData)
+            var savedCorrectAnswersPercentage: Double = 0
+            let testResultSnapshot = try await testResultDocRef.getDocument()
+            if let testResultData = testResultSnapshot.data(),
+               let savedPercentage = testResultData["correctAnswersPercentage"] as? Double {
+                savedCorrectAnswersPercentage = savedPercentage
+            }
             
-            var currentProgress = 0
+            var currentProgress: Double = 0.0
             let userDoc = try await userRef.getDocument()
             if let userData = userDoc.data(),
-               let currentProgressValue = userData["progress"] as? Int {
+               let currentProgressValue = userData["progress"] as? Double {
                 currentProgress = currentProgressValue
             }
             
-            let updatedProgress = currentProgress + Int(50*correctAnswersPercentage/100)
+            print(correctAnswersPercentage)
+            print(savedCorrectAnswersPercentage)
             
-            try await userRef.updateData(["progress": updatedProgress])
+            if correctAnswersPercentage > savedCorrectAnswersPercentage {
+                let additionalPoints = Double(50 * (correctAnswersPercentage - savedCorrectAnswersPercentage) / 100)
+
+                let updatedProgress = currentProgress + additionalPoints
+                
+                try await userRef.updateData(["progress": updatedProgress])
+                try await testResultDocRef.setData(testResultData)
+                
+                await fetchTestPercentages()
+            }
             
-            await fetchTestPercentages()
-            
-            print("DEBUG: Test result saved successfully!")
         } catch {
             print("DEBUG: Failed to saving test result with error \(error.localizedDescription)")
         }

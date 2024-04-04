@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Word: Hashable, Identifiable, Decodable {
+struct Word: Hashable, Identifiable, Codable {
     var id: UUID = .init()
-    var transcription: String
+    var transcription: String?
     var translate: String
     var word: String
-    var usage: [String]
+    var usage: [String]?
     
     enum CodingKeys: CodingKey {
         case transcription

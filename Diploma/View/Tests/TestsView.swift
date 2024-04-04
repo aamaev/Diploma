@@ -12,30 +12,38 @@ struct TestsView: View {
     @State private var searchText = ""
         
     var body: some View {
-        List {
-            Section(header: Text("Tests").font(.headline)) {
-                ForEach(searchResults, id: \.id) { test in
-                    NavigationLink(destination: TestDetailView(test: test, rules: test.rules)) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(test.title)
-                                    .font(.headline)
-                                Text(test.rules)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                            Spacer()
-                            if let percentage = viewModel.getTestPersentage(forTestID: test.id) {
-                                Text("\(String(format: "%.2f", percentage))%")
-                                    .foregroundColor(.green)
-                                    .font(.subheadline)
+        NavigationStack {
+            List {
+                Section(header: Text("Tests").font(.headline)) {
+                    ForEach(searchResults, id: \.id) { test in
+                        NavigationLink(destination: TestDetailView(test: test, rules: test.rules)) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(test.title)
+                                        .font(.headline)
+                                    Text(test.rules)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
+                                Spacer()
+                                if let percentage = viewModel.getTestPersentage(forTestID: test.id) {
+                                    Text("\(String(format: "%.2f", percentage))%")
+                                        .foregroundColor(.green)
+                                        .font(.subheadline)
+                                }
                             }
                         }
                     }
                 }
             }
+            .searchable(text: $searchText)
+            .refreshable {
+                Task {
+                    await viewModel.fetchTests()
+                    await viewModel.fetchTestPercentages()
+                }
+            }
         }
-        .searchable(text: $searchText)
     }
     
     var searchResults: [Test] {
