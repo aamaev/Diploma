@@ -24,7 +24,7 @@ struct WelcomeView: View {
                     .scaledToFit()
                     .frame(width: 450)
                     
-                Text("Improve your English right now")
+                Text("WelcomeView.ImproveEnglish")
                     .font(.system(size: 36, weight: .bold))
             }
             
@@ -35,7 +35,7 @@ struct WelcomeView: View {
                     nextView = .login
                     presentNextView.toggle()
                 } label: {
-                    Text("Login")
+                    Text("WelcomeView.Login")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.white)
                 }
@@ -48,7 +48,7 @@ struct WelcomeView: View {
                     nextView = .registration
                     presentNextView.toggle()
                 } label: {
-                    Text("Register")
+                    Text("WelcomeView.Register")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(Color("themeDark"))
                 }

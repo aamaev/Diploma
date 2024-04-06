@@ -14,11 +14,11 @@ struct QuestionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Select one")
+            Text("QuestionView.SelectOne")
                 .font(.subheadline)
                 .padding(.bottom, 5)
             VStack(alignment: .leading) {
-                Text("\(question.question)")
+                Text(question.question)
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding(.vertical, 20)

@@ -21,7 +21,7 @@ struct TestsView: View {
                                 VStack(alignment: .leading) {
                                     Text(test.title)
                                         .font(.headline)
-                                    Text(test.rules)
+                                    Text(test.rules.localized())
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                 }

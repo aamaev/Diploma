@@ -50,7 +50,7 @@ struct CardsListView: View {
                 .scrollTargetBehavior(.viewAligned)
                 
                 HStack {
-                    Text("My cards").bold()
+                    Text("CardsListView.MyCards").bold()
                     
                     Spacer()
                     

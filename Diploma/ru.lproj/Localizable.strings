@@ -1,0 +1,88 @@
+//Main View
+"Chats" = "Чаты";
+"Cards" = "Карточки";
+"Leaderboard" = "Лидеры";
+"Tests" = "Тесты";
+"Profile" = "Профиль";
+
+//Leaderboard
+"LeaderboardView.Leaderboard" = "Лидеры";
+
+//CardView
+"CardView.Cards: %@" = "Карточки: %@";
+"CardView.KnowWord" = "Я уже знаю это слово";
+"CardView.DontKnowWord" = "Начать учить это слово";
+
+//CardsView
+"CardsView.LearnedAllWords" = "Вы выучили все слова из этого списка";
+
+//CardsListView
+"CardsListView.MyCards" = "Мои карточки";
+
+//AddCardView
+"AddCardView.CardName" = "Имя списка";
+"AddCardView.Word" = "Слово";
+"AddCardView.Translation" = "Перевод";
+"AddCardView.Save" = "Сохранить";
+"AddCardView.Error" = "Ошибка";
+"AddCardView.FillFields" = "Заполните все поля";
+"AddCardView.NewCardStack" = "Новый список";
+"AddCardView.Cancel" = "Отмена";
+
+//TestsView
+"TestResultView.CorrectAnswers %@" = "Правильные Ответы: %@";
+"TestResultView.TryMoreTime" = "Неплохо, попробуй еще раз!";
+"TestResultView.AlmostPerfect" = "Вау! Почти идеально!";
+"TestResultView.AllCorrect" = "Все правильно. Идеально!";
+"TestResultView.Exit" = "Выход";
+
+//TestDetailView
+"TestDetailView.Next" = "Следующий";
+"TestDetailView.Question %d of %d" = "Вопрос %d из %d";
+
+//QuestionView
+"QuestionView.SelectOne" = "Выберите правильный вариант ответа";
+
+//WelcomeView
+"WelcomeView.ImproveEnglish" = "Улучши свой английский язык прямо сейчас";
+"WelcomeView.Login" = "Вход";
+"WelcomeView.Register" = "Регистрация";
+
+//LoginView
+"LoginView.LoginHere" = "Вход в аккаунт";
+"LoginView.WelcomeBack" = "С возвращением,\n мы скучали!";
+"LoginView.PasswordValid" = "Ваш пароль не действителен.";
+"LoginView.Password" = "Пароль";
+"LoginView.SignIn" = "Вход";
+"LoginView.NewAccount" = "Создать новый аккаунт";
+"LoginView.ContinueWith" = "Или продолжите с помощью";
+"LoginView.EmailValid" = "Ваша почта не действителена.";
+
+//RegistrationView
+"RegistrationView.CreateAccount" = "Создать аккаунт";
+"RegistrationView.ImproveYourEnglish" = "Улучшите свой английский,\n сделав первый шаг";
+"RegistrationView.UserName" = "Имя пользователя";
+"RegistrationView.ConfirmPassword" = "Подтверждение пароля";
+"RegistrationView.SignUp" = "Зарегистрироваться";
+"RegistrationView.AlreadyHaveAccount" = "Уже есть аккаунт";
+"RegistrationView.UserNameValid" = "Ваше имя пользователя недопустимо";
+
+//UserChatView
+"UserChatView.Message" = "Сообщение";
+
+//Profile View
+"ProfileView.Level %d" = "Уровень %d";
+"ProfileView.Progress %d" = "Текущий Прогресс %d";
+"ProfileView.General" = "Основные";
+"ProfileView.DarkMode" = "Темная Тема";
+"ProfileView.Account" = "Аккаунт";
+"ProfileView.SignOut" = "Выйти";
+"ProfileView.DeleteAccount" = "Удалить Аккаунт";
+"ProfileView.SureToDeleteAccount" = "Вы уверены, что хотите удалить аккаунт?";
+"ProfileView.UndoneAction" = "Это необратимое действие.";
+"ProfileView.Cancel" = "Отмена";
+"ProfileView.Delete" = "Удалить";
+
+//Tests View
+"Choose the third form of the verbs" = "Выберите третью форму глагола";
+"Choose the correct spelling of the verbs" = "Выберите правильное написание глаголов";

@@ -97,7 +97,7 @@ struct UserChatView: View {
             Image(systemName: "photo.on.rectangle.angled")
                 .font(.system(size: 24))
                 .foregroundColor(Color(.darkGray))
-            TextField("Message", text: $viewModel.chatText)
+            TextField("UserChatView.Message", text: $viewModel.chatText)
             Button {
                 Task {
                     await viewModel.sendMessage()

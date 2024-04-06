@@ -19,14 +19,14 @@ struct AddCardView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    TextField("Card Name", text: $stackName)
+                    TextField("AddCardView.CardName", text: $stackName)
                         .padding()
                         .padding(.top, 30)
                     
                     ForEach(words.indices, id: \.self) { index in
                         HStack {
-                            TextField("Word", text: $words[index].0)
-                            TextField("Translation", text: $words[index].1)
+                            TextField("AddCardView.Word", text: $words[index].0)
+                            TextField("AddCardView.Translation", text: $words[index].1)
                         }
                         .padding()
                     }
@@ -48,16 +48,16 @@ struct AddCardView: View {
                             isPresented = false
                         }
                     }, label: {
-                        Text("Save")
+                        Text("AddCardView.Save")
                     })
                     .buttonStyle(.bordered)
                     .tint(.blue)
                     .alert(isPresented: $showError) {
-                        Alert(title: Text("Error"), message: Text("Please fill in all fields"), dismissButton: .default(Text("OK")))
+                        Alert(title: Text("AddCardView.Error"), message: Text("AddCardView.FillFields"), dismissButton: .default(Text("OK")))
                     }
                 }
-                .navigationBarItems(leading: Text("New card stack").bold())
-                .navigationBarItems(trailing: Button("Cancel") {
+                .navigationBarItems(leading: Text("AddCardView.NewCardStack").bold())
+                .navigationBarItems(trailing: Button("AddCardView.Cancel") {
                     isPresented = false
                 })
             }

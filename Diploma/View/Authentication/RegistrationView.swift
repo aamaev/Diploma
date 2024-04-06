@@ -31,11 +31,11 @@ struct RegistrationView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Create Account")
+                Text("RegistrationView.CreateAccount")
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(Color("primaryViolet"))
                     .padding(.bottom)
-                Text("Improve your English\nby taking the first step")
+                Text("RegistrationView.ImproveYourEnglish")
                     .font(.system(size: 18, weight: .medium))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 75)
@@ -44,17 +44,17 @@ struct RegistrationView: View {
                                isValidEmail: $isValidEmail)
                 UserNameTextField(userName: $userName,
                                   isValidUserName: $isValidUserName,
-                                  placeholder: "User Name")
+                                  placeholder: "RegistrationView.UserName".localized())
                 PasswordTextField(password: $password,
                                   isValidPassword: $isValidPassword,
-                                  errorText: "Your password is not valid.",
-                                  placeholder: "Password",
+                                  errorText: "LoginView.PasswordValid".localized(),
+                                  placeholder: "LoginView.Password".localized(),
                                   validatePassword: Validator.validatePassword)
                 
                 PasswordTextField(password: $confirmPassword,
                                   isValidPassword: $isConfirmPasswordValid,
-                                  errorText: "Your password is not valid.",
-                                  placeholder: "Confirm password",
+                                  errorText: "LoginView.PasswordValid".localized(),
+                                  placeholder: "RegistrationView.ConfirmPassword".localized(),
                                   validatePassword: validateConfirm)
                 
                 Button {
@@ -64,7 +64,7 @@ struct RegistrationView: View {
                                                        userName: userName)
                     }
                 } label: {
-                    Text("Sign up")
+                    Text("RegistrationView.SignUp")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.white)
                 }
@@ -81,7 +81,7 @@ struct RegistrationView: View {
                     LoginView()
                         .navigationBarBackButtonHidden()
                 } label: {
-                    Text("Already have account")
+                    Text("RegistrationView.AlreadyHaveAccount")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(Color("themeDark"))
                 }

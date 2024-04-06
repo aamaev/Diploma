@@ -26,7 +26,7 @@ struct CardView: View {
             HStack {
                 VStack(alignment: .center) {
                     HStack {
-                        Text("Cards: \(title)")
+                        Text("CardView.Cards: %@".localized(title))
                             .font(.subheadline)
                             .foregroundColor(.black)
                         Spacer()
@@ -106,7 +106,7 @@ struct CardView: View {
             Button(action: {
                 onSwipeLeft()
             }) {
-                Text("I already know this word")
+                Text("CardView.KnowWord")
                     .font(.footnote)
                     .foregroundColor(Color("themeDark"))
                     .frame(maxWidth: .infinity)
@@ -117,7 +117,7 @@ struct CardView: View {
             Button(action: {
                 onSwipeRight()
             }) {
-                Text("Start learning this word")
+                Text("CardView.DontKnowWord")
                     .font(.footnote)
                     .foregroundColor(Color("themeDark"))
                     .frame(maxWidth: .infinity)

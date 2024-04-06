@@ -25,7 +25,7 @@ struct CardsView: View {
                     Spacer()
                     Text("🔥")
                         .font(.system(size: 64))
-                    Text("You learned all words from this stack")
+                    Text("CardsView.LearnedAllWords")
                         .font(.system(size: 16))
                         .padding()
                         .background(Color("primaryLightViolet"))

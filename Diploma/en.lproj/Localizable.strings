@@ -1,0 +1,89 @@
+//Main View
+"Chats" = "Chats";
+"Cards" = "Cards";
+"Leaderboard" = "Leaderboard";
+"Tests" = "Tests";
+"Profile" = "Profile";
+
+//Leaderboard
+"LeaderboardView.Leaderboard" = "Leaderboard";
+
+//CardView
+"CardView.Cards: %@" = "Cards: %@";
+"CardView.KnowWord" = "I already know this word";
+"CardView.DontKnowWord" = "Start learning this word";
+
+//CardsView
+"CardsView.LearnedAllWords" = "You learned all words from this stack";
+
+//CardsListView
+"CardsListView.MyCards" = "My cards";
+
+//AddCardView
+"AddCardView.CardName" = "Card Name";
+"AddCardView.Word" = "Word";
+"AddCardView.Translation" = "Translation";
+"AddCardView.Save" = "Save";
+"AddCardView.Error" = "Error";
+"AddCardView.FillFields" = "Please fill in all fields";
+"AddCardView.NewCardStack" = "New card stack";
+"AddCardView.Cancel" = "Cancel";
+
+//TestsView
+"TestResultView.CorrectAnswers %@" = "Correct Answers: %@";
+"TestResultView.TryMoreTime" = "Not bad, but try one more time!";
+"TestResultView.AlmostPerfect" = "Wow! Almost perfect!";
+"TestResultView.AllCorrect" = "All answers are correct. Perfect!";
+"TestResultView.Exit" = "Exit";
+
+//TestDetailView
+"TestDetailView.Next" = "Next";
+"TestDetailView.Question %d of %d" = "Question %d из %d";
+
+//QuestionView
+"QuestionView.SelectOne" = "Select One";
+
+//WelcomeView
+"WelcomeView.ImproveEnglish" = "Improve your English right now";
+"WelcomeView.Login" = "Login";
+"WelcomeView.Register" = "Register";
+
+//LoginView
+"LoginView.LoginHere" = "Login Here";
+"LoginView.WelcomeBack" = "Welcome back,\n we missed you!";
+"LoginView.PasswordValid" = "Your password is not valid.";
+"LoginView.Password" = "Password";
+"LoginView.SignIn" = "Sign in";
+"LoginView.NewAccount" = "Create new account";
+"LoginView.ContinueWith" = "Or continue with";
+"LoginView.EmailValid" = "Your email is not valid!";
+
+//RegistrationView
+"RegistrationView.CreateAccount" = "Create Account";
+"RegistrationView.ImproveYourEnglish" = "Improve your English\nby taking the first step";
+"RegistrationView.UserName" = "User Name";
+"RegistrationView.ConfirmPassword" = "Confirm password";
+"RegistrationView.SignUp" = "Sign Up";
+"RegistrationView.AlreadyHaveAccount" = "Already have account";
+"RegistrationView.UserNameValid" = "Your user name is not valid!";
+
+//UserChatView
+"UserChatView.Message" = "Message";
+
+//Profile View
+"ProfileView.Level %d" = "Level %d";
+"ProfileView.Progress %d" = "Current Progress %d";
+"ProfileView.General" = "General";
+"ProfileView.DarkMode" = "Dark Mode";
+"ProfileView.Account" = "Account";
+"ProfileView.SignOut" = "Sign Out";
+"ProfileView.DeleteAccount" = "Delete Account";
+"ProfileView.SureToDeleteAccount" = "Are you sure you want to delete account?";
+"ProfileView.UndoneAction" = "This action cannot be undone.";
+"ProfileView.Cancel" = "Cancel";
+"ProfileView.Delete" = "Delete";
+
+//Tests View
+"Choose the third form of the verbs" = "Choose the third form of the verbs";
+"Choose the correct spelling of the verbs" = "Choose the correct spelling of the verbs";
+

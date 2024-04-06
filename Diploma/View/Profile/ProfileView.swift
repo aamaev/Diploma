@@ -67,26 +67,26 @@ struct ProfileView: View {
                             let currentProgress = Int((Int(progress.truncatingRemainder(dividingBy: 100)) >= 100) ? Int(progress - 100) : Int(progress.truncatingRemainder(dividingBy: 100)))
                             
                             ProgressView(value: Float(currentProgress), total: 100) {
-                                Text("Level \(Int(progress / 100))")
+                                Text("ProfileView.Level %d".localized(Int(progress / 100)))
                             } currentValueLabel: {
-                                Text("Current Progress: \(currentProgress)")
+                                Text("ProfileView.Progress %d".localized(currentProgress))
                             }
                         }
                     }
                 }
                 
-                Section("General") {
-                    Toggle("Dark Mode", isOn: $isDarkMode)
+                Section("ProfileView.General") {
+                    Toggle("ProfileView.DarkMode", isOn: $isDarkMode)
                 }
                 
-                Section("Account") {
+                Section("ProfileView.Account") {
                     Button {
                         withAnimation {
                             viewModel.signOut()
                         }
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill",
-                                        title: "Sign Out",
+                                        title: "ProfileView.SignOut".localized(),
                                         tintColor: .red)
                     }
                     
@@ -94,15 +94,15 @@ struct ProfileView: View {
                         showingConfirmationAlert = true
                     } label: {
                         SettingsRowView(imageName: "xmark.circle.fill",
-                                        title: "Delete Account",
+                                        title: "ProfileView.DeleteAccount".localized(),
                                         tintColor: .red)
                     }
                     .alert(isPresented: $showingConfirmationAlert) {
                         Alert(
-                            title: Text("Are you sure you want to delete account?"),
-                            message: Text("This action cannot be undone."),
-                            primaryButton: .cancel(Text("Cancel")),
-                            secondaryButton: .destructive(Text("Delete")) {
+                            title: Text("ProfileView.SureToDeleteAccount"),
+                            message: Text("ProfileView.UndoneAction"),
+                            primaryButton: .cancel(Text("ProfileView.Cancel")),
+                            secondaryButton: .destructive(Text("ProfileView.Delete")) {
                                 Task {
                                     await viewModel.deleteAccount()
                                 }

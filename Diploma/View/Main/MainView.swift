@@ -11,16 +11,16 @@ struct MainView: View {
     var body: some View {
         TabView {
             Group {
-                ChatView()
-                    .tabItem {
-                        Image(systemName: "bubble.left.and.bubble.right.fill")
-                        Text("Chats")
-                    }
-                
                 CardsListView()
                     .tabItem {
                         Image(systemName: "square.on.square")
                         Text("Cards")
+                    }
+                
+                TestsView()
+                    .tabItem {
+                        Image(systemName: "book.fill")
+                        Text("Tests")
                     }
                 
                 LeaderboardView()
@@ -29,10 +29,10 @@ struct MainView: View {
                         Text("Leaderboard")
                     }
                 
-                TestsView()
+                ChatView()
                     .tabItem {
-                        Image(systemName: "book.fill")
-                        Text("Tests")
+                        Image(systemName: "bubble.left.and.bubble.right.fill")
+                        Text("Chats")
                     }
                 
                 ProfileView()

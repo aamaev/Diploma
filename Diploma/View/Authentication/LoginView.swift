@@ -30,11 +30,11 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Login Here")
+                Text("LoginView.LoginHere")
                     .font(.system(size: 30, weight: .bold))
                     .foregroundColor(Color("primaryViolet"))
                     .padding(.bottom)
-                Text("Welcome back you've\n been missed!")
+                Text("LoginView.WelcomeBack")
                     .font(.system(size: 16, weight: .semibold))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 75)
@@ -42,8 +42,8 @@ struct LoginView: View {
                 EmailTextField(email: $email, isValidEmail: $isValidEmail)
                 PasswordTextField(password: $password, 
                                   isValidPassword: $isValidPassword,
-                                  errorText: "Your password is not valid.",
-                                  placeholder: "Password",
+                                  errorText: "LoginView.PasswordValid".localized(),
+                                  placeholder: "LoginView.Password".localized(),
                                   validatePassword: Validator.validatePassword)
                 
                 Button {
@@ -51,7 +51,7 @@ struct LoginView: View {
                         try await viewModel.signIn(withEmail: email, password: password)
                     }
                 } label: {
-                    Text("Sign in")
+                    Text("LoginView.SignIn")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.white)
                 }
@@ -67,7 +67,7 @@ struct LoginView: View {
                     RegistrationView()
                         .navigationBarBackButtonHidden()
                 } label: {
-                    Text("Create new account")
+                    Text("LoginView.NewAccount")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(Color("themeDark"))
                 }
@@ -91,7 +91,7 @@ struct BottomView: View {
     
     var body: some View {
         VStack {
-            Text("Or continue with")
+            Text("LoginView.ContinueWith")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Color("primaryViolet"))
             HStack {
@@ -149,7 +149,7 @@ struct EmailTextField: View {
             
             if !isValidEmail {
                 HStack {
-                    Text("Your email is not valid!")
+                    Text("LoginView.EmailValid")
                         .foregroundColor(.red)
                         .padding(.leading)
                     Spacer()

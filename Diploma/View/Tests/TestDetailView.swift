@@ -19,12 +19,12 @@ struct TestDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Question \(currentQuestionIndex + 1) of \(test.questions.count)")
+            Text("TestDetailView.Question %d of %d".localized([currentQuestionIndex + 1, test.questions.count]))
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 5)
-            Text(rules)
+            Text(rules.localized())
                 .font(.headline)
                 .padding(.horizontal, 20)
             Spacer()
@@ -36,7 +36,7 @@ struct TestDetailView: View {
             
             Spacer()
             
-            Button("Next") {
+            Button("TestDetailView.Next") {
                 if currentQuestionIndex < test.questions.count - 1 {
                     currentQuestionIndex += 1
                 } else {
@@ -56,9 +56,6 @@ struct TestDetailView: View {
             .padding()
             .sheet(isPresented: $showingResultSheet) {
                 TestResultView(correctAnswersPercentage: calculateCorrectAnswersPercentage())
-                    .onDisappear {
-                        
-                    }
             }
             .onAppear {
                 selectedAnswers = Array(repeating: "", count: test.questions.count)

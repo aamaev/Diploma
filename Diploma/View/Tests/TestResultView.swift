@@ -28,13 +28,13 @@ struct TestResultView: View {
                     .padding()
                 }
 
-                Text("Correct Answers: \(String(format: "%.0f", correctAnswersPercentage))%")
+                Text("TestResultView.CorrectAnswers %@".localized(String(format: "%.0f", correctAnswersPercentage)))
                     .font(.headline)
                     .padding()
                 
                 if (0..<50).contains(correctAnswersPercentage) {
                     VStack {
-                        Text("Not bad, but try one more time!")
+                        Text("TestResultView.TryMoreTime")
                         Image("person-sad")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -43,7 +43,7 @@ struct TestResultView: View {
                     .padding(.horizontal, 30)
                 } else if (50..<100).contains(correctAnswersPercentage) {
                     VStack {
-                        Text("Wow! Almost perfect!")
+                        Text("TestResultView.AlmostPerfect")
                         Image("person-sad")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -52,7 +52,7 @@ struct TestResultView: View {
                     .padding(.horizontal, 30)
                 } else {
                     VStack {
-                        Text("All answers are correct. Perfect!")
+                        Text("TestResultView.AllCorrect")
                         Image("person-happy")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -64,7 +64,7 @@ struct TestResultView: View {
                 Button(action: {
                     dismiss()
                 }, label: {
-                    Text("Exit")
+                    Text("TestResultView.Exit")
                 })
                 .buttonStyle(.bordered)
                 .tint(.black)
