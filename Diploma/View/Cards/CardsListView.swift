@@ -28,7 +28,7 @@ struct CardsListView: View {
                                                             count: verticalSizeClass == .regular ? 2 : 4,
                                                             spacing: 5)
                                     .overlay(
-                                        Text(card.title)
+                                        Text(card.title.localized())
                                             .font(.title3.bold())
                                             .foregroundStyle(.black.gradient)
 
@@ -48,6 +48,7 @@ struct CardsListView: View {
                 .navigationTitle("Cards")
                 .contentMargins(16, for: .scrollContent)
                 .scrollTargetBehavior(.viewAligned)
+                
                 
                 HStack {
                     Text("CardsListView.MyCards").bold()
@@ -78,6 +79,11 @@ struct CardsListView: View {
                     .onDelete(perform: delete)
                 }
                 .scrollContentBackground(.hidden)
+                .refreshable {
+                    Task {
+                        await viewModel.fetchUserCards()
+                    }
+                }
                 
                 Spacer()
             }

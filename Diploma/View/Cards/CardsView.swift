@@ -18,7 +18,7 @@ struct CardsView: View {
                              word: card.words[index],
                              onSwipeLeft: { self.onSwipeLeft(at: index) },
                              onSwipeRight: { self.onSwipeRight(at: index) })
-                        .id(UUID())
+                    .id(UUID())
                 }
             } else {
                 VStack {
@@ -49,4 +49,9 @@ struct CardsView: View {
         }
     }
 }
+
+#Preview {
+    CardsView(card: Card(title: "asdasdasd", words: [Word(translate: "qwewqe", word: "qeqwe")], color: .red))
+}
+
 

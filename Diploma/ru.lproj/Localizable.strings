@@ -49,17 +49,17 @@
 "WelcomeView.Register" = "Регистрация";
 
 //LoginView
-"LoginView.LoginHere" = "Вход в аккаунт";
+"LoginView.LoginHere" = "Вход в учетную запись";
 "LoginView.WelcomeBack" = "С возвращением,\n мы скучали!";
 "LoginView.PasswordValid" = "Ваш пароль не действителен.";
 "LoginView.Password" = "Пароль";
 "LoginView.SignIn" = "Вход";
 "LoginView.NewAccount" = "Создать новый аккаунт";
 "LoginView.ContinueWith" = "Или продолжите с помощью";
-"LoginView.EmailValid" = "Ваша почта не действителена.";
+"LoginView.EmailValid" = "Ваша почта не действительна.";
 
 //RegistrationView
-"RegistrationView.CreateAccount" = "Создать аккаунт";
+"RegistrationView.CreateAccount" = "Создать учетную запись";
 "RegistrationView.ImproveYourEnglish" = "Улучшите свой английский,\n сделав первый шаг";
 "RegistrationView.UserName" = "Имя пользователя";
 "RegistrationView.ConfirmPassword" = "Подтверждение пароля";
@@ -86,3 +86,16 @@
 //Tests View
 "Choose the third form of the verbs" = "Выберите третью форму глагола";
 "Choose the correct spelling of the verbs" = "Выберите правильное написание глаголов";
+"Select the right article 1" = "Выберите нужный артикль 1";
+"Select the right article 2" = "Выберите нужный артикль 2";
+"Select the appropriate verb" = "Выберите соответствующий глагол";
+"Choose the second form of the verbs" = "Выберите вторую форму глагола";
+
+
+//WelcomeInfo View
+
+"Develop communication skills with us by learning new words, improving grammar, and improving communication skills." = "Развивайте навыки общения с нами, изучая новые слова, улучшая грамматику и улучшая навыки общения.";
+
+"Improve your English everywhere! In lessons, with friends, in travel and even in moments of leisure." = "Совершенствуйте свой английский везде! На уроках, с друзьями, в путешествиях и даже в моменты отдыха.";
+
+"Take the tests and assess your progress in learning English." = "Пройдите тесты и оцените Ваш прогресс в изучении английского языка.";

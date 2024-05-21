@@ -64,7 +64,6 @@ struct WelcomeView: View {
                 }
             }
         }
-        .padding()
     }
 }
 

@@ -29,69 +29,67 @@ struct RegistrationView: View {
     @FocusState private var focusedField: FocusedField?
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Text("RegistrationView.CreateAccount")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(Color("primaryViolet"))
-                    .padding(.bottom)
-                Text("RegistrationView.ImproveYourEnglish")
-                    .font(.system(size: 18, weight: .medium))
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 75)
-                
-                EmailTextField(email: $email, 
-                               isValidEmail: $isValidEmail)
-                UserNameTextField(userName: $userName,
-                                  isValidUserName: $isValidUserName,
-                                  placeholder: "RegistrationView.UserName".localized())
-                PasswordTextField(password: $password,
-                                  isValidPassword: $isValidPassword,
-                                  errorText: "LoginView.PasswordValid".localized(),
-                                  placeholder: "LoginView.Password".localized(),
-                                  validatePassword: Validator.validatePassword)
-                
-                PasswordTextField(password: $confirmPassword,
-                                  isValidPassword: $isConfirmPasswordValid,
-                                  errorText: "LoginView.PasswordValid".localized(),
-                                  placeholder: "RegistrationView.ConfirmPassword".localized(),
-                                  validatePassword: validateConfirm)
-                
-                Button {
-                    Task {
-                        try await viewModel.createUser(withEmail: email,
-                                                       password: confirmPassword,
-                                                       userName: userName)
-                    }
-                } label: {
-                    Text("RegistrationView.SignUp")
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.white)
+        VStack {
+            Text("RegistrationView.CreateAccount")
+                .font(.system(size: 30, weight: .bold))
+                .foregroundColor(Color("primaryViolet"))
+                .padding(.bottom)
+            Text("RegistrationView.ImproveYourEnglish")
+                .font(.system(size: 18, weight: .medium))
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 75)
+            
+            EmailTextField(email: $email,
+                           isValidEmail: $isValidEmail)
+            UserNameTextField(userName: $userName,
+                              isValidUserName: $isValidUserName,
+                              placeholder: "RegistrationView.UserName".localized())
+            PasswordTextField(password: $password,
+                              isValidPassword: $isValidPassword,
+                              errorText: "LoginView.PasswordValid".localized(),
+                              placeholder: "LoginView.Password".localized(),
+                              validatePassword: Validator.validatePassword)
+            
+            PasswordTextField(password: $confirmPassword,
+                              isValidPassword: $isConfirmPasswordValid,
+                              errorText: "LoginView.PasswordValid".localized(),
+                              placeholder: "RegistrationView.ConfirmPassword".localized(),
+                              validatePassword: validateConfirm)
+            
+            Button {
+                Task {
+                    try await viewModel.createUser(withEmail: email,
+                                                   password: confirmPassword,
+                                                   userName: userName)
                 }
-                .padding(.vertical)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .background(Color("primaryViolet"))
-                .cornerRadius(12)
-                .padding(.horizontal)
-                .opacity(canProceed ? 1.0 : 0.5)
-                .disabled(!canProceed)
-                .padding(.top, 15)
-                
-                NavigationLink {
-                    LoginView()
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("RegistrationView.AlreadyHaveAccount")
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(Color("themeDark"))
-                }
-                .padding(.vertical)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .cornerRadius(12)
-                .padding(.horizontal)
-                
-                BottomView()
+            } label: {
+                Text("RegistrationView.SignUp")
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(.white)
             }
+            .padding(.vertical)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .background(Color("primaryViolet"))
+            .cornerRadius(12)
+            .padding(.horizontal)
+            .opacity(canProceed ? 1.0 : 0.5)
+            .disabled(!canProceed)
+            .padding(.top, 15)
+            
+            NavigationLink {
+                LoginView()
+                    .navigationBarBackButtonHidden()
+            } label: {
+                Text("RegistrationView.AlreadyHaveAccount")
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(Color("themeDark"))
+            }
+            .padding(.vertical)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .cornerRadius(12)
+            .padding(.horizontal)
+            
+            BottomView()
         }
     }
     
@@ -129,7 +127,7 @@ struct UserNameTextField: View {
             
             if !isValidUserName {
                 HStack {
-                    Text("Your user name is not valid!")
+                    Text("RegistrationView.UserNameValid")
                         .foregroundColor(.red)
                         .padding(.leading)
                     Spacer()

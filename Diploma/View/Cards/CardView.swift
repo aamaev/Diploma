@@ -80,7 +80,7 @@ struct CardView: View {
                         if let transcription = word.transcription {
                             Text("[\(transcription)]")
                                 .font(.subheadline)
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color.black.opacity(0.6))
                             ForEach(word.usage ?? [], id: \.self) { sentence in
                                 Text(sentence)
                                     .padding(.vertical, 10)
@@ -149,5 +149,7 @@ struct CardView: View {
         }
     }
 }
+
+
 
 

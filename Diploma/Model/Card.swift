@@ -41,6 +41,8 @@ extension Color {
             return Color.brown
         case "red":
             return Color.red
+        case "mint":
+            return Color.mint
         default:
             return Color.accentColor
         }

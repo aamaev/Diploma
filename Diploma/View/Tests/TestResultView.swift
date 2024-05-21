@@ -28,7 +28,7 @@ struct TestResultView: View {
                     .padding()
                 }
 
-                Text("TestResultView.CorrectAnswers %@".localized(String(format: "%.0f", correctAnswersPercentage)))
+                Text("TestResultView.CorrectAnswers %@".localized(String(format: "%.0f", correctAnswersPercentage)) + "%")
                     .font(.headline)
                     .padding()
                 
@@ -44,7 +44,7 @@ struct TestResultView: View {
                 } else if (50..<100).contains(correctAnswersPercentage) {
                     VStack {
                         Text("TestResultView.AlmostPerfect")
-                        Image("person-sad")
+                        Image("person-almost")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     }
@@ -71,7 +71,7 @@ struct TestResultView: View {
         
                 Spacer()
             }
-            .background(LinearGradient(gradient: Gradient(colors: [correctAnswersPercentage > 50 ? .green : .brown, .white]), startPoint: .top, endPoint: .bottom))
+            .background(LinearGradient(gradient: Gradient(colors: [correctAnswersPercentage == 100 ? .green : (correctAnswersPercentage > 60 ? .cyan : .brown), .white]), startPoint: .top, endPoint: .bottom))
             .navigationBarHidden(true)
         }
     }

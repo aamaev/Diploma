@@ -10,6 +10,8 @@ import Firebase
 import FirebaseStorage
 import FirebaseFirestoreSwift
 import GoogleSignIn
+import CryptoKit
+import AuthenticationServices
 
 @MainActor
 class AuthViewModel: ObservableObject {
@@ -74,6 +76,33 @@ class AuthViewModel: ObservableObject {
             print("DEBUG: Failed to google sign in error: \(error.localizedDescription)")
         }
     }
+    
+    func signInWithApple(_ authorization: ASAuthorization, currentNonce: String?) async throws {
+        do {
+            if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+                guard let nonce = currentNonce else {
+                    print("Unable to fetch identity token")
+                    return
+                }
+                guard let appleIDToken = appleIDCredential.identityToken else {
+                    print("Unable to fetch identity token")
+                    return
+                }
+                guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                    print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                    return
+                }
+                let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
+                                                                rawNonce: nonce,
+                                                                fullName: appleIDCredential.fullName)
+
+                try await signIn(withCredential: credential)
+            }
+        } catch {
+            print("DEBUG: Failed to apple sign in error: \(error.localizedDescription)")
+        }
+    }
+ 
     
     func signOut() {
         self.userSession = nil

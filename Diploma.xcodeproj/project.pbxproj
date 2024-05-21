@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090147E32BD6B484007A6753 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 090147E22BD6B483007A6753 /* GoogleService-Info.plist */; };
 		0929F92E2BA5E971005B132D /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F92D2BA5E971005B132D /* LeaderboardView.swift */; };
 		0929F9312BA5EAEE005B132D /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F9302BA5EAEE005B132D /* LeaderboardViewModel.swift */; };
 		0929F9332BA5ECC9005B132D /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929F9322BA5ECC9005B132D /* LeaderboardUser.swift */; };
@@ -23,8 +24,10 @@
 		095709FA2B763D3600C249AD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 095709F92B763D3600C249AD /* GoogleSignIn */; };
 		095709FC2B763D3600C249AD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 095709FB2B763D3600C249AD /* GoogleSignInSwift */; };
 		09570A042B76472200C249AD /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09570A032B76472200C249AD /* ApplicationUtility.swift */; };
+		0959CD702BC17ED8008CB9FE /* AppleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0959CD6F2BC17ED8008CB9FE /* AppleAuth.swift */; };
 		0966F9112B876FD100BF55E5 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966F9102B876FD100BF55E5 /* ChatMessage.swift */; };
 		0966F9132B8A2E5900BF55E5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966F9122B8A2E5900BF55E5 /* ChatViewModel.swift */; };
+		0977D6ED2BDCC8B900F6F5C9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0977D6EC2BDCC8B900F6F5C9 /* Launch Screen.storyboard */; };
 		0998D9762BBE97E700C46562 /* WelcomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998D9752BBE97E700C46562 /* WelcomeInfoView.swift */; };
 		0998D9782BBEA52F00C46562 /* PagingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998D9772BBEA52F00C46562 /* PagingIndicator.swift */; };
 		099FD64E2B7E303D0099D78F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FD64D2B7E303D0099D78F /* CardView.swift */; };
@@ -67,7 +70,6 @@
 		09A8B7992B73AA68003C751E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B7982B73AA68003C751E /* AuthViewModel.swift */; };
 		09A8B79E2B73B39B003C751E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A8B79D2B73B39B003C751E /* ContentView.swift */; };
 		09B8D8D72B8B3D840078721C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8D8D62B8B3D840078721C /* ImagePicker.swift */; };
-		09B8D8D92B8B4A3E0078721C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09B8D8D82B8B4A3E0078721C /* GoogleService-Info.plist */; };
 		09B8D8DC2B8B4B5A0078721C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 09B8D8DB2B8B4B5A0078721C /* SDWebImageSwiftUI */; };
 		09B8D8DE2B8E06110078721C /* RecentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8D8DD2B8E06110078721C /* RecentMessage.swift */; };
 		09C2AEBA2B8E4AC2005D65B9 /* timeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C2AEB92B8E4AC2005D65B9 /* timeFormatter.swift */; };
@@ -84,6 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090147E22BD6B483007A6753 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0929F92D2BA5E971005B132D /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		0929F9302BA5EAEE005B132D /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		0929F9322BA5ECC9005B132D /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
@@ -99,8 +102,10 @@
 		095709F02B7521D400C249AD /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
 		095709F62B75260B00C249AD /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		09570A032B76472200C249AD /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
+		0959CD6F2BC17ED8008CB9FE /* AppleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuth.swift; sourceTree = "<group>"; };
 		0966F9102B876FD100BF55E5 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		0966F9122B8A2E5900BF55E5 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		0977D6EC2BDCC8B900F6F5C9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0998D9752BBE97E700C46562 /* WelcomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoView.swift; sourceTree = "<group>"; };
 		0998D9772BBEA52F00C46562 /* PagingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicator.swift; sourceTree = "<group>"; };
 		099FD64D2B7E303D0099D78F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		09A8B7982B73AA68003C751E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		09A8B79D2B73B39B003C751E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		09B8D8D62B8B3D840078721C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		09B8D8D82B8B4A3E0078721C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09B8D8DD2B8E06110078721C /* RecentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMessage.swift; sourceTree = "<group>"; };
 		09C2AEB92B8E4AC2005D65B9 /* timeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeFormatter.swift; sourceTree = "<group>"; };
 		09D4F60B2B80B1D10000B4D1 /* CardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListView.swift; sourceTree = "<group>"; };
@@ -262,7 +266,7 @@
 		09A8B7432B6FE592003C751E /* Diploma */ = {
 			isa = PBXGroup;
 			children = (
-				09B8D8D82B8B4A3E0078721C /* GoogleService-Info.plist */,
+				090147E22BD6B483007A6753 /* GoogleService-Info.plist */,
 				09A8B7482B6FE593003C751E /* Assets.xcassets */,
 				09A8B79C2B73B383003C751E /* App */,
 				09A8B7942B73A784003C751E /* Model */,
@@ -280,6 +284,7 @@
 		09A8B74A2B6FE593003C751E /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				0977D6EC2BDCC8B900F6F5C9 /* Launch Screen.storyboard */,
 				09A8B74B2B6FE593003C751E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -310,6 +315,7 @@
 				09C2AEB92B8E4AC2005D65B9 /* timeFormatter.swift */,
 				0998D9772BBEA52F00C46562 /* PagingIndicator.swift */,
 				092C72F52BBEF3010070F875 /* localized.swift */,
+				0959CD6F2BC17ED8008CB9FE /* AppleAuth.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -521,9 +527,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A8B74C2B6FE593003C751E /* Preview Assets.xcassets in Resources */,
+				090147E32BD6B484007A6753 /* GoogleService-Info.plist in Resources */,
 				092C72F02BBEEDAE0070F875 /* Localizable.strings in Resources */,
+				0977D6ED2BDCC8B900F6F5C9 /* Launch Screen.storyboard in Resources */,
 				09A8B7492B6FE593003C751E /* Assets.xcassets in Resources */,
-				09B8D8D92B8B4A3E0078721C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +579,7 @@
 				0998D9782BBEA52F00C46562 /* PagingIndicator.swift in Sources */,
 				09A8B7472B6FE592003C751E /* WelcomeView.swift in Sources */,
 				0929F9312BA5EAEE005B132D /* LeaderboardViewModel.swift in Sources */,
+				0959CD702BC17ED8008CB9FE /* AppleAuth.swift in Sources */,
 				09A8B7452B6FE592003C751E /* DiplomaApp.swift in Sources */,
 				09570A042B76472200C249AD /* ApplicationUtility.swift in Sources */,
 			);
@@ -718,6 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Diploma/Diploma.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Diploma/Preview Content\"";
@@ -727,7 +736,7 @@
 				INFOPLIST_FILE = Diploma/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,6 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Diploma/Diploma.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Diploma/Preview Content\"";
@@ -757,7 +767,7 @@
 				INFOPLIST_FILE = Diploma/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -36,7 +36,7 @@ struct WelcomeInfoView: View {
                                 .containerRelativeFrame(.horizontal)
                                 .overlay {
                                     VStack {
-                                        Text(card.text).bold().font(.title2)
+                                        Text(card.text.localized()).bold().font(.title2)
                                             .padding(40)
                                         Image(card.photo)
                                             .resizable()
@@ -50,7 +50,7 @@ struct WelcomeInfoView: View {
                                                 }
                                             }) {
                                                NavigationLink(destination: MainView()) {
-                                                   Text("Continue")
+                                                   Text("Продолжить")
                                                        .padding(10)
                                                        .foregroundColor(.white)
                                                        .background(Color.indigo.gradient)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 enum FocusedField {
     case email
@@ -88,6 +89,8 @@ struct LoginView: View {
 
 struct BottomView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @Environment(\.colorScheme) private var scheme
+    @State private var nonce: String?
     
     var body: some View {
         VStack {
@@ -95,6 +98,27 @@ struct BottomView: View {
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(Color("primaryViolet"))
             HStack {
+//                SignInWithAppleButton(.signIn) { request in
+//                    let nonce = randomNonceString()
+//                    self.nonce = nonce
+//                    request.requestedScopes = [.email, .fullName]
+//                    request.nonce = sha256(nonce)
+//                } onCompletion: { result in
+//                    switch result {
+//                    case .success(let authorization): 
+//                        Task {
+//                            try await viewModel.signInWithApple(authorization, currentNonce: nonce)
+//                        }
+//                    case .failure(let error):
+//                        print(error)
+//                        break;
+//                    }
+//                }
+//                .signInWithAppleButtonStyle(scheme == .dark ? .white : .black)
+//                .frame(width: 200, height: 50)
+//                .clipShape(Capsule())
+//                .padding()
+                
                 Button {
                     //action
                 } label: {

@@ -18,6 +18,12 @@
 
 //CardsListView
 "CardsListView.MyCards" = "My cards";
+"Месяцы" = "Months";
+"Цвета" = "Colors";
+"Фрукты" = "Fruits";
+"Дни недели" = "Days of the week";
+"Времена года" = "Seasons";
+
 
 //AddCardView
 "AddCardView.CardName" = "Card Name";
@@ -86,4 +92,7 @@
 //Tests View
 "Choose the third form of the verbs" = "Choose the third form of the verbs";
 "Choose the correct spelling of the verbs" = "Choose the correct spelling of the verbs";
-
+"Select the right article 1" = "Select the right article 1";
+"Select the right article 2" = "Select the right article 2";
+"Select the appropriate verb" = "Select the appropriate verb";
+"Choose the second form of the verbs" = "Choose the second form of the verbs";

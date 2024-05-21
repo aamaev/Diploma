@@ -49,9 +49,9 @@ struct LeaderboardView: View {
                         } else if (index == 2) {
                             Text(user.userName)
                                 .font(.headline.bold())
-                                .foregroundStyle(.brown.gradient)
+                                .foregroundStyle(.brown)
                             Image(systemName: "trophy.fill")
-                                .foregroundStyle(.brown.gradient)
+                                .foregroundStyle(.brown)
                         } else {
                             Text(user.userName)
                         }
